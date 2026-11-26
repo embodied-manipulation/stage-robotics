@@ -1,0 +1,13 @@
+{
+  "hide_task_feedback": false,
+  "disable_success_stop": false,
+  "disable_task_memory": false,
+  "disable_global_memory": false,
+  "disable_bootstrap": true,
+  "disable_privileged_grasp": true,
+  "task_language_names_only": true,
+  "restrict_file_access": true,
+  "disable_flash": true,
+  "retain_task_independent_guidance": true,
+  "restrict_observation_fields": true
+}

@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stage-core"
+version = "0.1.0"
+description = "STAGE protocol core: global-local stage transitions, shared action cadence, and selective context retention"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["runtime"]
+include = ["subgoal_core*"]

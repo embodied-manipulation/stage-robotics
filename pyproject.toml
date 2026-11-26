@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stage-robotics"
+version = "0.1.0"
+description = "STAGE: Coordinating Vision-Language-Action Policy and Code-as-Policy for Long-Horizon Manipulation"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.23", "scipy>=1.10", "Pillow>=9.1", "jsonschema>=4.18,<5"]
+
+[project.optional-dependencies]
+mcp = ["mcp>=1.30,<2"]
+stage-review = [
+    "pydantic>=2,<3",
+    "pydantic-ai-slim==2.53.0",
+    "pydantic-ai-harness==0.53.0",
+    "tomli>=2; python_version < '3.11'",
+    "imageio>=2",
+]
+stage-rtc-review = ["torch"]
+
+[tool.setuptools.packages.find]
+where = ["stage/runtime", "stage"]
+include = ["subgoal_core*", "stage_bridge*"]

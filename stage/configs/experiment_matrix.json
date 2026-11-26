@@ -1,0 +1,48 @@
+{
+  "status": "prepared_not_launched",
+  "selection": "task-index systematic subset; no selection on episode outcomes",
+  "plans": [
+    {
+      "policy": "xr1",
+      "root": "<STAGE_WORKSPACE>/prepared/xr1",
+      "groups": [
+        "<STAGE_WORKSPACE>/prepared/xr1/V/campaign.json",
+        "<STAGE_WORKSPACE>/prepared/xr1/H/campaign.json",
+        "<STAGE_WORKSPACE>/prepared/xr1/H_unclassified/campaign.json"
+      ],
+      "ablation_tasks": [
+        "ArrangeBreadBasket",
+        "CuttingToolSelection",
+        "MakeIceLemonade",
+        "SeparateFreezerRack"
+      ]
+    },
+    {
+      "policy": "rldx",
+      "root": "<STAGE_WORKSPACE>/prepared/rldx",
+      "groups": [
+        "<STAGE_WORKSPACE>/prepared/rldx/V/campaign.json",
+        "<STAGE_WORKSPACE>/prepared/rldx/H/campaign.json"
+      ],
+      "ablation_tasks": []
+    },
+    {
+      "policy": "pi05_rlinf",
+      "root": "<STAGE_WORKSPACE>/prepared/pi05_rlinf",
+      "groups": [
+        "<STAGE_WORKSPACE>/prepared/pi05_rlinf/V/campaign.json",
+        "<STAGE_WORKSPACE>/prepared/pi05_rlinf/H/campaign.json",
+        "<STAGE_WORKSPACE>/prepared/pi05_rlinf/H_unclassified/campaign.json"
+      ],
+      "ablation_tasks": [
+        0,
+        3,
+        6,
+        9
+      ],
+      "ablation_seeds": [
+        1
+      ]
+    }
+  ]
+}

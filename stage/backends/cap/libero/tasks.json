@@ -1,0 +1,321 @@
+{
+  "tasks": [
+    {
+      "suite": "libero_10_task",
+      "task": 0,
+      "task_name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "task_language": "put both the cream cheese and the tomato sauce in the basket",
+      "label": "LongTask",
+      "initial_states": 50,
+      "reset_base": 0,
+      "task_data_repairs": []
+    },
+    {
+      "suite": "libero_10_swap",
+      "task": 0,
+      "task_name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "task_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "label": "LongSwap",
+      "initial_states": 50,
+      "reset_base": 0,
+      "task_data_repairs": []
+    },
+    {
+      "suite": "libero_10_task",
+      "task": 1,
+      "task_name": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket",
+      "task_language": "put both the alphabet soup and the butter in the basket",
+      "label": "LongTask",
+      "initial_states": 50,
+      "reset_base": 50,
+      "task_data_repairs": []
+    },
+    {
+      "suite": "libero_10_swap",
+      "task": 1,
+      "task_name": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket",
+      "task_language": "put both the cream cheese box and the butter in the basket",
+      "label": "LongSwap",
+      "initial_states": 50,
+      "reset_base": 50,
+      "task_data_repairs": []
+    },
+    {
+      "suite": "libero_10_task",
+      "task": 2,
+      "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+      "task_language": "turn on the stove and put the pan on it",
+      "label": "LongTask",
+      "initial_states": 50,
+      "reset_base": 100,
+      "task_data_repairs": [
+        {
+          "task_id": 2,
+          "original_init_count": 0,
+          "original_init_shape": [
+            0
+          ],
+          "original_goal_line_66": "  And (Turnon flat_stove_1) (On chefmate_8_frypan_1 flat_stove_1_cook_region))",
+          "repaired_goal_line_66": "  (And (Turnon flat_stove_1) (On chefmate_8_frypan_1 flat_stove_1_cook_region))",
+          "edit_count": 1,
+          "inserted_characters": 1,
+          "other_parentheses_unchanged": true,
+          "native_strict_parse_original_error": "Exception Missing open parenthesis",
+          "native_strict_parse_repaired": "passed in memory; original source not written",
+          "native_outer_parser_fallback_observed": {
+            "problem": "libero_kitchen_tabletop_manipulation",
+            "objects": {
+              "akita_black_bowl": [
+                "akita_black_bowl_1"
+              ],
+              "wine_bottle": [
+                "wine_bottle_1"
+              ]
+            },
+            "fixtures": {
+              "kitchen_table": [
+                "kitchen_table"
+              ],
+              "white_cabinet": [
+                "white_cabinet_1"
+              ],
+              "wine_rack": [
+                "wine_rack_1"
+              ]
+            },
+            "goal_state": [
+              [
+                "close",
+                "white_cabinet_1_bottom_region"
+              ],
+              [
+                "in",
+                "akita_black_bowl_1",
+                "white_cabinet_1_bottom_region"
+              ]
+            ],
+            "warning": "Fallback silently selects os.listdir(libero_10)[0], a different task on this installation; it is not a valid Long Task task2 repair."
+          },
+          "native_reset_original_error": "RPent make_env computes seed % trials; task2 trials=0 causes ZeroDivisionError before a valid reset.",
+          "donor_relative_path": "liberopro/liberopro/init_files/libero_10/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.pruned_init",
+          "donor_absolute_path": "<LIBERO_PRO_ROOT>/liberopro/liberopro/init_files/libero_10/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.pruned_init",
+          "donor_count": 50,
+          "donor_shape": [
+            50,
+            47
+          ],
+          "parsed_scene_equal_to_base": {
+            "problem_name": true,
+            "fixtures": true,
+            "objects": true,
+            "regions": true,
+            "initial_state": true,
+            "scene_properties": true
+          },
+          "scene_comparison_method": "Native strict BDDL parser on base and memory-repaired task variant; equality of the six parsed fields, no hash.",
+          "changed_semantic_fields": [
+            "language_instruction",
+            "goal_state",
+            "obj_of_interest"
+          ],
+          "effective_goal_unchanged_from_variant_intent": true,
+          "private_overlay_expected": "<LIBERO_OVERLAY_ROOT>/task_assets_overlay",
+          "overlay_runtime_validation": "static link construction; LongTask verification reused; LongSwap strict parser and count checked on new paths; no simulator/GPU/Planner",
+          "protocol_label": "Long Task uses the recorded syntax/init repair; Long Swap retains original official assets",
+          "suite": "libero_10_task",
+          "task": 2,
+          "reused_prior_verified_repair": true,
+          "verification_evidence": "<LIBERO_OVERLAY_ROOT>/asset_overlay_check.json",
+          "prior_repair_document": "<LIBERO_OVERLAY_ROOT>/DATA_REPAIR.md",
+          "overlay_bddl": "<LIBERO_OVERLAY_ROOT>/task_assets_overlay/bddl_files/libero_10_task/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl",
+          "overlay_init": "<LIBERO_OVERLAY_ROOT>/task_assets_overlay/init_files/libero_10_task/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.pruned_init",
+          "applicable_seeds": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "selected_donor_state_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "type": "native_asset_repair",
+          "bddl_change": "one opening parenthesis before And; unchanged goal atoms",
+          "init_state_source": "<LIBERO_PRO_ROOT>/liberopro/liberopro/init_files/libero_10/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.pruned_init",
+          "original_init_state_count": 0,
+          "replacement_init_state_count": 50,
+          "init_state_index_rule": "seed % 50, selecting indices0..9 for seeds0..9",
+          "unmodified_official_assets": false
+        }
+      ]
+    },
+    {
+      "suite": "libero_10_swap",
+      "task": 2,
+      "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+      "task_language": "turn on the stove and put the moka pot on it",
+      "label": "LongSwap",
+      "initial_states": 50,
+      "reset_base": 100,
+      "task_data_repairs": []
+    },
+    {
+      "suite": "libero_10_task",
+      "task": 3,
+      "task_name": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+      "task_language": "put the bottle in the bottom drawer of the cabinet and close it",
+      "label": "LongTask",
+      "initial_states": 50,
+      "reset_base": 150,
+      "task_data_repairs": []
+    },
+    {
+      "suite": "libero_10_swap",
+      "task": 3,
+      "task_name": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+      "task_language": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "label": "LongSwap",
+      "initial_states": 50,
+      "reset_base": 150,
+      "task_data_repairs": []
+    },
+    {
+      "suite": "libero_10_task",
+      "task": 4,
+      "task_name": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+      "task_language": "put the yellow and white mug on the left plate and put the white mug on the right plate",
+      "label": "LongTask",
+      "initial_states": 50,
+      "reset_base": 200,
+      "task_data_repairs": []
+    },
+    {
+      "suite": "libero_10_swap",
+      "task": 4,
+      "task_name": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+      "task_language": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "label": "LongSwap",
+      "initial_states": 50,
+      "reset_base": 200,
+      "task_data_repairs": []
+    },
+    {
+      "suite": "libero_10_task",
+      "task": 5,
+      "task_name": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+      "task_language": "pick up the cup and place it in the back compartment of the caddy",
+      "label": "LongTask",
+      "initial_states": 50,
+      "reset_base": 250,
+      "task_data_repairs": []
+    },
+    {
+      "suite": "libero_10_swap",
+      "task": 5,
+      "task_name": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+      "task_language": "pick up the book and place it in the back compartment of the caddy",
+      "label": "LongSwap",
+      "initial_states": 50,
+      "reset_base": 250,
+      "task_data_repairs": []
+    },
+    {
+      "suite": "libero_10_task",
+      "task": 6,
+      "task_name": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+      "task_language": "put the red mug on the plate and put the chocolate pudding to the right of the plate",
+      "label": "LongTask",
+      "initial_states": 50,
+      "reset_base": 300,
+      "task_data_repairs": []
+    },
+    {
+      "suite": "libero_10_swap",
+      "task": 6,
+      "task_name": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+      "task_language": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "label": "LongSwap",
+      "initial_states": 50,
+      "reset_base": 300,
+      "task_data_repairs": []
+    },
+    {
+      "suite": "libero_10_task",
+      "task": 7,
+      "task_name": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "task_language": "put both the ketchup and the cream cheese box in the basket",
+      "label": "LongTask",
+      "initial_states": 50,
+      "reset_base": 350,
+      "task_data_repairs": []
+    },
+    {
+      "suite": "libero_10_swap",
+      "task": 7,
+      "task_name": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "task_language": "put both the alphabet soup and the cream cheese box in the basket",
+      "label": "LongSwap",
+      "initial_states": 50,
+      "reset_base": 350,
+      "task_data_repairs": []
+    },
+    {
+      "suite": "libero_10_task",
+      "task": 8,
+      "task_name": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+      "task_language": "put the left moka pot on the stove and turn it on",
+      "label": "LongTask",
+      "initial_states": 50,
+      "reset_base": 400,
+      "task_data_repairs": [
+        "task08_goal_complete_language/v1: include stove activation in the public instruction; official goal unchanged"
+      ]
+    },
+    {
+      "suite": "libero_10_swap",
+      "task": 8,
+      "task_name": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+      "task_language": "put both moka pots on the stove",
+      "label": "LongSwap",
+      "initial_states": 50,
+      "reset_base": 400,
+      "task_data_repairs": []
+    },
+    {
+      "suite": "libero_10_task",
+      "task": 9,
+      "task_name": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "task_language": "put the white mug in the microwave and close it",
+      "label": "LongTask",
+      "initial_states": 50,
+      "reset_base": 450,
+      "task_data_repairs": []
+    },
+    {
+      "suite": "libero_10_swap",
+      "task": 9,
+      "task_name": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "task_language": "put the yellow and white mug in the microwave and close it",
+      "label": "LongSwap",
+      "initial_states": 50,
+      "reset_base": 450,
+      "task_data_repairs": []
+    }
+  ],
+  "source": "Existing LIBERO-PRO task/reset metadata and repaired assets, copied 2026-10-24. No task recipes or experience imported.",
+  "task08_language_revision": "libero-long-task08-goal-complete/v1"
+}
