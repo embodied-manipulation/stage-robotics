@@ -20,6 +20,8 @@ All **680 Main-Table episodes** (5 seeds per task across every suite, using froz
 
 In addition, [`case_studies/`](case_studies/) provides the **4 coupled-task diagnostic rollouts** (`BoardWaffleDependency` and `BreakfastCoffeeComposition` at seed `1758` for both `STAGE` and `RPent-Hybrid`), kept separate from the 680-episode benchmark denominators.
 
+> **Note on LIBERO-PRO `seed=1` recorded `action_budget` (`libero_pro_stage_pi_rlinf`)**: `84/100` STAGE episodes ran under the `2,000`-step cap, while `16` early `seed=1` episodes retained from initial $1.6\times$/$2.0\times$-horizon batches preserve their recorded `832`/`1,040` step caps (`15/16` terminated early on native task success at `172–763` steps well below their cap, and `1/16`—`long_task` task `9` seed `1`—reached `832` steps and is conservatively retained as a failure).
+
 ---
 
 ## 2. Directory Layout & Artifacts
