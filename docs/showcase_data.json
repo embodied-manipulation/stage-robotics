@@ -112,7 +112,7 @@
           "episodes": 80,
           "successes": 28,
           "task_sr_pct": 35.0,
-          "subtask_sr_pct": 57.37,
+          "subtask_sr_pct": 58.62,
           "mean_executed_actions": 1911.8
         }
       },
