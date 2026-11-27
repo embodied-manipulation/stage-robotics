@@ -17,8 +17,8 @@
   ],
   "main_table_episode_count": 680,
   "coupled_case_study_episode_count": 4,
-  "total_trajectory_npz_mb": 30.18,
-  "total_metadata_mb": 40.51,
+  "total_trajectory_npz_mb": 30.23,
+  "total_metadata_mb": 40.56,
   "cohorts": [
     {
       "cohort_id": "libero_pro_rpent_hybrid_pi_rlinf",
@@ -64,8 +64,8 @@
           "episodes": 50,
           "successes": 45,
           "task_sr_pct": 90.0,
-          "subtask_sr_pct": 90.0,
-          "mean_executed_actions": 640.4
+          "subtask_sr_pct": 92.0,
+          "mean_executed_actions": 663.7
         },
         "long_swap": {
           "episodes": 50,
