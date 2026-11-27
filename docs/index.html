@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STAGE — Coordinating VLA Policy and Code-as-Policy for Long-Horizon Manipulation</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-alt: #f1f5f9;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #475569;
+      --vla: #478fc2;
+      --vla-soft: #e0f0fb;
+      --code: #d98236;
+      --code-soft: #fdf0e2;
+      --advance: #27785d;
+      --recover: #d16b48;
+      --success-bg: #dcfce7;
+      --success-fg: #166534;
+      --fail-bg: #fee2e2;
+      --fail-fg: #991b1b;
+      --accent: #1e3a5f;
+      --radius: 12px;
+      --shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--vla); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    header.hero {
+      background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+      color: #f8fafc;
+      padding: 52px 0 44px;
+      border-bottom: 1px solid #334155;
+    }
+    .venue-pill {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 999px;
+      background: rgba(71, 143, 194, 0.22);
+      border: 1px solid rgba(125, 211, 252, 0.35);
+      color: #bae6fd;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      margin-bottom: 14px;
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 span { color: #7dd3fc; }
+    .hero .subtitle {
+      max-width: 880px;
+      margin: 0 auto 24px;
+      color: #cbd5e1;
+      font-size: 17px;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform 0.12s ease, background 0.15s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .btn:hover { transform: translateY(-1px); text-decoration: none; }
+    .btn-primary { background: #38bdf8; color: #0f172a; }
+    .btn-secondary { background: rgba(255,255,255,0.1); color: #f8fafc; border-color: rgba(255,255,255,0.22); }
+    .btn-small { padding: 6px 12px; font-size: 12.5px; border-radius: 6px; }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      max-width: 1020px;
+      margin: 0 auto;
+    }
+    .kpi-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 14px 18px;
+      text-align: left;
+    }
+    .kpi-val { font-size: 26px; font-weight: 800; color: #f8fafc; line-height: 1.15; }
+    .kpi-val small { font-size: 13px; color: #86efac; font-weight: 600; margin-left: 6px; }
+    .kpi-label { font-size: 12.5px; color: #94a3b8; margin-top: 4px; }
+
+    /* Sections */
+    section { padding: 44px 0; border-bottom: 1px solid var(--border); }
+    .sec-head { margin-bottom: 22px; }
+    .sec-head h2 { margin: 0 0 6px; font-size: 26px; letter-spacing: -0.01em; }
+    .sec-head p { margin: 0; color: var(--muted); font-size: 15px; max-width: 920px; }
+
+    /* Filter Tabs & Case Cards */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .tab-group { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tab-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .tab-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .case-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .case-pill {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-align: left;
+    }
+    .case-pill:hover { border-color: #94a3b8; }
+    .case-pill.selected {
+      border-color: var(--vla);
+      background: #f0f9ff;
+      box-shadow: 0 0 0 2px rgba(71, 143, 194, 0.16);
+    }
+    .case-pill .cp-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .case-pill .cp-title { font-weight: 700; font-size: 14.5px; color: var(--text); }
+    .case-pill .cp-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .tag-paired {
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 1px 7px;
+      border-radius: 999px;
+      font-size: 10.5px;
+      font-weight: 700;
+    }
+
+    /* Studio Player Card */
+    .studio-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .studio-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
+    .studio-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      background: #e2e8f0;
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+    }
+    .studio-title { margin: 0 0 6px; font-size: 21px; }
+    .studio-instr {
+      font-size: 14px;
+      color: var(--text);
+      background: var(--surface-alt);
+      padding: 8px 12px;
+      border-left: 3px solid var(--vla);
+      border-radius: 4px;
+      margin: 8px 0;
+    }
+    .studio-takeaway { margin: 8px 0 0; font-size: 14px; color: var(--muted); }
+    .sync-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .sync-btn {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 7px 12px;
+      border-radius: 7px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .sync-btn:hover { background: #e2e8f0; }
+    .sync-btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    .players-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .players-grid.single-col {
+      grid-template-columns: minmax(0, 780px);
+      justify-content: center;
+    }
+    @media (max-width: 920px) {
+      .players-grid { grid-template-columns: 1fr; }
+    }
+
+    .player-pane {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      background: #fcfdff;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .pane-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .method-name { font-weight: 800; font-size: 16px; }
+    .outcome-pill {
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .outcome-pill.pass { background: var(--success-bg); color: var(--success-fg); }
+    .outcome-pill.fail { background: var(--fail-bg); color: var(--fail-fg); }
+
+    .video-wrap {
+      background: #0f172a;
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      max-height: 440px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .step-bar-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Executor & Stage Timeline */
+    .timeline-box {
+      position: relative;
+      background: #e2e8f0;
+      height: 22px;
+      border-radius: 5px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .tl-seg {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      opacity: 0.92;
+    }
+    .tl-seg.vla { background: var(--vla); }
+    .tl-seg.code { background: var(--code); }
+    .tl-stage-tick {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(15, 23, 42, 0.75);
+      z-index: 2;
+    }
+    .tl-stage-tick.recover { background: #dc2626; width: 2.5px; }
+    .tl-playhead {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2.5px;
+      background: #0f172a;
+      box-shadow: 0 0 0 1px #fff;
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    .legend-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 12px;
+      color: var(--muted);
+      align-items: center;
+    }
+    .swatch {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      border-radius: 3px;
+      margin-right: 5px;
+      vertical-align: -1px;
+    }
+
+    .bookmarks-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .bm-chip {
+      background: var(--surface);
+      border: 1px solid #cbd5e1;
+      color: var(--text);
+      font-size: 11.5px;
+      padding: 4px 9px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.12s;
+    }
+    .bm-chip:hover { background: var(--vla-soft); border-color: var(--vla); }
+
+    .live-readout {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-size: 12.5px;
+      min-height: 68px;
+    }
+    .live-readout .lr-row { margin-bottom: 3px; }
+    .live-readout code {
+      background: #e2e8f0;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-size: 11.5px;
+    }
+
+    details.trace-drawer {
+      margin-top: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-alt);
+      padding: 10px 14px;
+    }
+    details.trace-drawer summary {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 13.5px;
+      color: var(--accent);
+    }
+    .trace-scroll {
+      max-height: 300px;
+      overflow-y: auto;
+      margin-top: 10px;
+      background: var(--surface);
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    /* Tables */
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      background: var(--surface);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    table.data-table th, table.data-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+    table.data-table th {
+      background: var(--surface-alt);
+      font-weight: 700;
+      color: var(--text);
+      font-size: 12.5px;
+    }
+    table.data-table tr.ours-row { background: #f0f9ff; font-weight: 600; }
+    .num { text-align: right !important; font-variant-numeric: tabular-nums; }
+
+    /* Figures */
+    .fig-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+    .fig-card img { width: 100%; height: auto; display: block; border-radius: 6px; }
+    .fig-caption { font-size: 13px; color: var(--muted); margin-top: 10px; }
+    .fig-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    pre.code-block {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 16px 18px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container" style="text-align:center;">
+    <div class="venue-pill">Anonymous CVPR 2027 Submission · Open-Source Code &amp; Rollout Benchmark</div>
+    <h1><span>Stage by Stage</span>: Coordinating VLA Policy and<br>Code-as-Policy for Long-Horizon Manipulation</h1>
+    <p class="subtitle">
+      An inference-time global–local coordination framework that unites pretrained Vision-Language-Action (VLA) policies and Code-as-Policy (CaP) programs around persistent stage contracts and selective context retention—without fine-tuning, target-task exploration, or cross-episode memory.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#case-showcase">▶ Interactive Case-Study Videos</a>
+      <a class="btn btn-secondary" href="#rollout-dataset">📦 680 Main-Table Rollouts</a>
+      <a class="btn btn-secondary" href="#method-overview">🧭 Method &amp; Analysis</a>
+      <a class="btn btn-secondary" href="https://github.com/embodied-manipulation/stage-robotics" target="_blank" rel="noopener">💻 GitHub Repository</a>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-val">80.00% <small>+26.00 pp vs. RPent-Hybrid</small></div>
+        <div class="kpi-label">LIBERO-PRO Long Avg SR (90.0% Task · 70.0% Swap)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">65.00% <small>+43.12 pp vs. RPent-Hybrid</small></div>
+        <div class="kpi-label">RoboCasa365 Composite Avg SR (XR-1 + CaP)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">35.63% <small>+22.48 pp vs. RLDX-1</small></div>
+        <div class="kpi-label">RoboCasa365 Composite Avg SR (RLDX-1 + CaP)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">680 + 4 <small>100% Table 1 Self-Eval</small></div>
+        <div class="kpi-label">Public Trajectories (.traj.npz) &amp; Stage Traces</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- Interactive Case-Study Video Showcase -->
+  <section id="case-showcase">
+    <div class="sec-head">
+      <h2>Case-Study Rollout Showcase (Paper &amp; Supplementary)</h2>
+      <p>
+        Select any case study from the main paper (Section 5.5, Figure 5) or supplementary material (Figures S3 &amp; S4) to inspect synchronized rollouts, VLA-vs-Code execution segments, STAGE transition boundaries (<code>start</code> / <code>continue</code> / <code>advance</code> / <code>recover</code>), and clickable physical-action checkpoints (20 Hz simulation steps).
+      </p>
+    </div>
+
+    <div class="filter-bar">
+      <div class="tab-group" id="category-tabs">
+        <button class="tab-btn active" data-cat="all">All Paper Cases (8)</button>
+        <button class="tab-btn" data-cat="coupled">Coupled-Goal Dependencies (2)</button>
+        <button class="tab-btn" data-cat="robocasa365">RoboCasa365 Handoffs (4)</button>
+        <button class="tab-btn" data-cat="libero_pro">LIBERO-PRO Handoffs (2)</button>
+      </div>
+      <div class="legend-inline">
+        <span><i class="swatch" style="background:var(--vla)"></i>VLA Execution</span>
+        <span><i class="swatch" style="background:var(--code)"></i>Code-as-Policy Execution</span>
+        <span><i class="swatch" style="background:#0f172a;width:3px;"></i>Stage Transition</span>
+        <span><i class="swatch" style="background:#dc2626;width:3px;"></i>Recover Stage</span>
+      </div>
+    </div>
+
+    <div class="case-selector" id="case-selector"></div>
+
+    <div class="studio-card" id="studio-card">
+      <div class="studio-header">
+        <div style="flex:1 1 540px;">
+          <div class="studio-badge" id="st-badge">Loading...</div>
+          <h3 class="studio-title" id="st-title">Loading case study...</h3>
+          <div class="studio-instr" id="st-instr"></div>
+          <p class="studio-takeaway" id="st-takeaway"></p>
+        </div>
+        <div class="sync-controls" id="sync-controls">
+          <button class="sync-btn primary" id="btn-play-both">▶ Play Both</button>
+          <button class="sync-btn" id="btn-pause-both">⏸ Pause</button>
+          <button class="sync-btn" id="btn-reset-both">↺ Reset to Step 0</button>
+          <select class="sync-btn" id="speed-select" aria-label="Playback speed">
+            <option value="1">Speed: 1.0×</option>
+            <option value="2" selected>Speed: 2.0×</option>
+            <option value="4">Speed: 4.0×</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="players-grid" id="players-grid">
+        <!-- STAGE Pane -->
+        <div class="player-pane" id="pane-stage">
+          <div class="pane-top">
+            <span class="method-name" id="stage-method-title">STAGE (Ours)</span>
+            <span class="outcome-pill pass" id="stage-outcome">Native Success</span>
+          </div>
+          <div class="video-wrap">
+            <video id="vid-stage" controls preload="metadata" playsinline muted></video>
+          </div>
+          <div class="step-bar-meta">
+            <span id="stage-step-label">Step 0 / 0</span>
+            <span id="stage-split-label">VLA: 0 · Code: 0</span>
+          </div>
+          <div class="timeline-box" id="tl-stage" title="Click timeline to seek physical action step">
+            <div class="tl-playhead" id="ph-stage" style="left:0%"></div>
+          </div>
+          <div class="bookmarks-row" id="bm-stage"></div>
+          <div class="live-readout" id="ro-stage"></div>
+        </div>
+
+        <!-- RPent-Hybrid Pane -->
+        <div class="player-pane" id="pane-rpent">
+          <div class="pane-top">
+            <span class="method-name" id="rpent-method-title">RPent-Hybrid (Matched Baseline)</span>
+            <span class="outcome-pill fail" id="rpent-outcome">Incomplete</span>
+          </div>
+          <div class="video-wrap">
+            <video id="vid-rpent" controls preload="metadata" playsinline muted></video>
+          </div>
+          <div class="step-bar-meta">
+            <span id="rpent-step-label">Step 0 / 0</span>
+            <span id="rpent-split-label">VLA: 0 · Code: 0</span>
+          </div>
+          <div class="timeline-box" id="tl-rpent" title="Click timeline to seek physical action step">
+            <div class="tl-playhead" id="ph-rpent" style="left:0%"></div>
+          </div>
+          <div class="bookmarks-row" id="bm-rpent"></div>
+          <div class="live-readout" id="ro-rpent"></div>
+        </div>
+      </div>
+
+      <details class="trace-drawer">
+        <summary>Inspect Recorded STAGE Decisions, Executor Tool Calls &amp; Trajectory Archive Link</summary>
+        <div id="drawer-links" style="margin-top:8px;font-size:13px;"></div>
+        <div class="trace-scroll">
+          <table class="data-table" id="trace-table">
+            <thead>
+              <tr>
+                <th>Action Range</th>
+                <th>Type / Executor</th>
+                <th>Stage / Tool</th>
+                <th>Instruction / Arguments / Completion Criterion</th>
+              </tr>
+            </thead>
+            <tbody id="trace-tbody"></tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- Public Rollout Dataset -->
+  <section id="rollout-dataset">
+    <div class="sec-head">
+      <h2>Open-Source Rollout Trajectory Dataset (Table 1 Self-Evaluated Cohorts)</h2>
+      <p>
+        All <strong>680 canonical Main-Table episodes</strong> (both <strong>STAGE</strong> and our matched <strong>RPent-Hybrid</strong> reproduction across RoboCasa365 Composite and LIBERO-PRO Long) plus <strong>4 coupled-goal diagnostic rollouts</strong> are archived under <a href="https://github.com/embodied-manipulation/stage-robotics/tree/main/data/rollouts" target="_blank" rel="noopener"><code>data/rollouts/</code></a> (~32 MB compressed). Each rollout preserves full physical action sequences, simulator/robot states, observation-checkpoint kinematics, tool-call intervals, and STAGE transition logs.
+      </p>
+    </div>
+
+    <div style="overflow-x:auto; border:1px solid var(--border); border-radius:10px; box-shadow:var(--shadow); margin-bottom:20px;">
+      <table class="data-table" id="cohort-table">
+        <thead>
+          <tr>
+            <th>Paper Table</th>
+            <th>Benchmark</th>
+            <th>Method</th>
+            <th>VLM (Effort)</th>
+            <th>Executors</th>
+            <th class="num">Suite 1 SR (%)</th>
+            <th class="num">Suite 2 SR (%)</th>
+            <th class="num">Avg SR (%)</th>
+            <th class="num">Episodes</th>
+            <th>Dataset Path</th>
+          </tr>
+        </thead>
+        <tbody id="cohort-tbody"></tbody>
+      </table>
+    </div>
+
+    <pre class="code-block"><code># Clone repository and verify all 680 Main-Table + 4 Coupled-Case rollouts
+git clone https://github.com/embodied-manipulation/stage-robotics.git
+cd stage-robotics
+python data/rollouts/inspect_rollouts.py
+
+# Inspect STAGE transitions &amp; VLA/Code calls for a specific rollout
+python data/rollouts/inspect_rollouts.py \
+  --episode robocasa365_stage_xr1__composite_unseen__ArrangeTea__s1761</code></pre>
+  </section>
+
+  <!-- Method & Quantitative Figures -->
+  <section id="method-overview" style="border-bottom:none;">
+    <div class="sec-head">
+      <h2>Method Architecture &amp; Coordination Analysis</h2>
+      <p>
+        STAGE decouples global objective progression (persistent stage contracts $g=(\ell, c)$) from local executor selection within a unified $W=40$ physical-action observation interval, retaining backend-compatible temporal context across same-stage handoffs.
+      </p>
+    </div>
+
+    <div class="fig-card">
+      <img src="assets/method_overview.png" alt="STAGE Overview">
+      <div class="fig-caption">
+        <strong>Figure 1: Overview of STAGE.</strong> A persistent stage contract connects global VLM review decisions (<code>start</code>, <code>continue</code>, <code>advance</code>, <code>recover</code>) with local VLA and Code-as-Policy execution, preserving compatible sensor/action context within an unfinished stage and reinitializing cleanly at stage boundaries.
+      </div>
+    </div>
+
+    <div class="fig-grid-3">
+      <div class="fig-card" style="margin-bottom:0;">
+        <img src="assets/executor_progress.png" alt="Executor complementarity">
+        <div class="fig-caption">
+          <strong>Complementary Executor Roles:</strong> Both VLA and Code-as-Policy drive native subtask-condition gains, adapting naturally to VLA backbone proficiency and spatial precision demands.
+        </div>
+      </div>
+      <div class="fig-card" style="margin-bottom:0;">
+        <img src="assets/stage_executor_switching.png" alt="Within-stage executor switching">
+        <div class="fig-caption">
+          <strong>Within-Stage Collaboration:</strong> Removing within-stage executor switching drops RoboCasa365 Unseen Task SR by 17.50 pp (53.75% → 36.25%); removing context continuity drops it by 18.75 pp (→ 35.00%).
+        </div>
+      </div>
+      <div class="fig-card" style="margin-bottom:0;">
+        <img src="assets/interval_tradeoff.png" alt="Observation interval trade-off">
+        <div class="fig-caption">
+          <strong>Review Interval Trade-off:</strong> Extending $W$ from 40 to 80 steps retains 95.3% of baseline Task SR while cutting planner tokens by 30.7% and rollout time by ~50%.
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    STAGE: Coordinating Vision-Language-Action Policy and Code-as-Policy for Long-Horizon Manipulation · Anonymous CVPR 2027 Submission ·
+    <a href="https://github.com/embodied-manipulation/stage-robotics" target="_blank" rel="noopener">GitHub Repository</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  let DATA = null;
+  let activeCategory = 'all';
+  let activeCase = null;
+
+  const vidStage = document.getElementById('vid-stage');
+  const vidRpent = document.getElementById('vid-rpent');
+  const speedSelect = document.getElementById('speed-select');
+
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
+  function seekToStep(video, step, fps) {
+    if (!video) return;
+    const t = Math.max(0, (step <= 0 ? 0 : (step - 1) / (fps || 20)));
+    video.currentTime = t;
+  }
+
+  function applySpeed() {
+    const rate = parseFloat(speedSelect.value || '2');
+    vidStage.playbackRate = rate;
+    if (vidRpent.src) vidRpent.playbackRate = rate;
+  }
+
+  function buildTimeline(container, playheadEl, trace, video, fps) {
+    Array.from(container.querySelectorAll('.tl-seg, .tl-stage-tick')).forEach(el => el.remove());
+    const total = Math.max(1, trace.executed_actions || 1);
+    (trace.calls || []).forEach(c => {
+      const seg = document.createElement('div');
+      seg.className = 'tl-seg ' + (c.executor === 'vla' ? 'vla' : 'code');
+      const left = (100 * c.start_step / total).toFixed(3);
+      const width = Math.max(0.35, 100 * (c.end_step - c.start_step) / total).toFixed(3);
+      seg.style.left = left + '%';
+      seg.style.width = width + '%';
+      seg.title = `[${c.start_step}..${c.end_step}] ${c.executor.toUpperCase()} · ${c.tool}`;
+      container.appendChild(seg);
+    });
+    (trace.stages || []).forEach(st => {
+      if (st.start_step <= 0) return;
+      const tick = document.createElement('div');
+      tick.className = 'tl-stage-tick' + (st.decision === 'recover' ? ' recover' : '');
+      tick.style.left = (100 * st.start_step / total).toFixed(3) + '%';
+      tick.title = `${st.subgoal_id} (${st.decision}) @ step ${st.start_step}: ${st.instruction || ''}`;
+      container.appendChild(tick);
+    });
+    container.onclick = (ev) => {
+      const rect = container.getBoundingClientRect();
+      const frac = Math.min(1, Math.max(0, (ev.clientX - rect.left) / rect.width));
+      const step = Math.round(frac * total);
+      seekToStep(video, step, fps);
+    };
+    playheadEl.style.left = '0%';
+  }
+
+  function updateReadout(trace, step, stepLabelEl, playheadEl, readoutEl) {
+    const total = Math.max(1, trace.executed_actions || 1);
+    const clamped = Math.min(total, Math.max(0, step));
+    stepLabelEl.textContent = `Step ${clamped} / ${total}` + (trace.action_budget ? ` (budget ${trace.action_budget})` : '');
+    playheadEl.style.left = Math.min(100, (100 * clamped / total)).toFixed(2) + '%';
+
+    const call = (trace.calls || []).find(c => clamped >= c.start_step && clamped <= c.end_step) ||
+                 (trace.calls || [])[trace.calls.length - 1];
+    const stage = (trace.stages || []).find(s => clamped >= s.start_step && clamped <= s.end_step);
+
+    let html = '';
+    if (stage) {
+      const badgeColor = stage.decision === 'recover' ? '#dc2626' : '#27785d';
+      html += `<div class="lr-row"><strong style="color:${badgeColor}">${esc(stage.subgoal_id)} (${esc(stage.decision)})</strong> [${stage.start_step}–${stage.end_step}]: ${esc(stage.instruction)}</div>`;
+    }
+    if (call) {
+      const cColor = call.executor === 'vla' ? 'var(--vla)' : 'var(--code)';
+      html += `<div class="lr-row"><strong style="color:${cColor}">${esc(call.executor.toUpperCase())}</strong> <code>${esc(call.tool)}</code> [${call.start_step}–${call.end_step}]: ${esc(call.summary)}</div>`;
+    } else {
+      html += `<div class="lr-row" style="color:var(--muted)">Ready at initial state (Step 0). Click Play or any checkpoint chip above.</div>`;
+    }
+    readoutEl.innerHTML = html;
+  }
+
+  function buildBookmarks(container, bookmarks, video, fps) {
+    container.innerHTML = '';
+    (bookmarks || []).forEach(bm => {
+      const btn = document.createElement('button');
+      btn.className = 'bm-chip';
+      btn.textContent = bm.label;
+      btn.onclick = () => {
+        seekToStep(video, bm.step, fps);
+      };
+      container.appendChild(btn);
+    });
+  }
+
+  function buildTraceDrawer(caseItem) {
+    const tr = caseItem.stage.trace;
+    const linksEl = document.getElementById('drawer-links');
+    const repoBase = DATA.repo_url + '/blob/main/';
+    let linkHtml = `<strong>STAGE Episode ID:</strong> <code>${esc(tr.episode_id)}</code> · <a href="${repoBase + esc(tr.trajectory_npz)}" target="_blank" rel="noopener">Download STAGE .traj.npz</a>`;
+    if (caseItem.rpent) {
+      const rtr = caseItem.rpent.trace;
+      linkHtml += ` &nbsp;|&nbsp; <strong>RPent Episode ID:</strong> <code>${esc(rtr.episode_id)}</code> · <a href="${repoBase + esc(rtr.trajectory_npz)}" target="_blank" rel="noopener">Download RPent .traj.npz</a>`;
+    }
+    linksEl.innerHTML = linkHtml;
+
+    const events = [];
+    (tr.stages || []).forEach(s => {
+      events.push({ sortKey: s.start_step * 2, range: `Step ${s.start_step}`, kind: `STAGE · ${s.decision.toUpperCase()}`, name: s.subgoal_id, detail: `${s.instruction || ''} — Criterion: ${s.completion_condition || ''}`, isStage: true });
+    });
+    (tr.calls || []).forEach(c => {
+      events.push({ sortKey: c.start_step * 2 + 1, range: `${c.start_step}–${c.end_step} (${c.steps})`, kind: c.executor.toUpperCase(), name: c.tool, detail: c.summary, isStage: false });
+    });
+    events.sort((a, b) => a.sortKey - b.sortKey);
+
+    const tbody = document.getElementById('trace-tbody');
+    tbody.innerHTML = events.map(e => `
+      <tr style="${e.isStage ? 'background:#f0fdf4;font-weight:600;' : ''}">
+        <td style="white-space:nowrap;font-variant-numeric:tabular-nums;">${esc(e.range)}</td>
+        <td>${esc(e.kind)}</td>
+        <td><code>${esc(e.name)}</code></td>
+        <td>${esc(e.detail)}</td>
+      </tr>
+    `).join('');
+  }
+
+  function selectCase(caseItem) {
+    activeCase = caseItem;
+    renderSelector();
+
+    document.getElementById('st-badge').textContent = caseItem.badge;
+    document.getElementById('st-title').textContent = `${caseItem.task} (seed ${caseItem.seed}) — ${caseItem.suite_label}`;
+    document.getElementById('st-instr').innerHTML = `<strong>Task Goal:</strong> ${esc(caseItem.instruction)}`;
+    document.getElementById('st-takeaway').textContent = caseItem.takeaway;
+
+    const sTrace = caseItem.stage.trace;
+    document.getElementById('stage-method-title').textContent = `STAGE (Ours · ${sTrace.executors})`;
+    const sOut = document.getElementById('stage-outcome');
+    sOut.textContent = sTrace.task_success ? `✓ Native Success (${sTrace.executed_actions} steps)` : `✗ Incomplete (${sTrace.executed_actions} steps)`;
+    sOut.className = 'outcome-pill ' + (sTrace.task_success ? 'pass' : 'fail');
+    document.getElementById('stage-split-label').textContent = `VLA: ${sTrace.vla_actions} steps · Code: ${sTrace.code_actions} steps`;
+
+    vidStage.pause();
+    vidStage.src = caseItem.stage.video;
+    vidStage.load();
+    buildTimeline(document.getElementById('tl-stage'), document.getElementById('ph-stage'), sTrace, vidStage, caseItem.fps);
+    buildBookmarks(document.getElementById('bm-stage'), caseItem.stage.bookmarks, vidStage, caseItem.fps);
+    updateReadout(sTrace, 0, document.getElementById('stage-step-label'), document.getElementById('ph-stage'), document.getElementById('ro-stage'));
+
+    const grid = document.getElementById('players-grid');
+    const paneRpent = document.getElementById('pane-rpent');
+    const btnPlayBoth = document.getElementById('btn-play-both');
+    if (caseItem.rpent) {
+      grid.classList.remove('single-col');
+      paneRpent.style.display = 'flex';
+      btnPlayBoth.textContent = '▶ Play Both';
+      const rTrace = caseItem.rpent.trace;
+      document.getElementById('rpent-method-title').textContent = `RPent-Hybrid (${rTrace.executors})`;
+      const rOut = document.getElementById('rpent-outcome');
+      rOut.textContent = rTrace.task_success ? `✓ Native Success (${rTrace.executed_actions} steps)` : `✗ Failed / Incomplete (${rTrace.executed_actions} steps)`;
+      rOut.className = 'outcome-pill ' + (rTrace.task_success ? 'pass' : 'fail');
+      document.getElementById('rpent-split-label').textContent = `VLA: ${rTrace.vla_actions} steps · Code: ${rTrace.code_actions} steps`;
+
+      vidRpent.pause();
+      vidRpent.src = caseItem.rpent.video;
+      vidRpent.load();
+      buildTimeline(document.getElementById('tl-rpent'), document.getElementById('ph-rpent'), rTrace, vidRpent, caseItem.fps);
+      buildBookmarks(document.getElementById('bm-rpent'), caseItem.rpent.bookmarks, vidRpent, caseItem.fps);
+      updateReadout(rTrace, 0, document.getElementById('rpent-step-label'), document.getElementById('ph-rpent'), document.getElementById('ro-rpent'));
+    } else {
+      grid.classList.add('single-col');
+      paneRpent.style.display = 'none';
+      btnPlayBoth.textContent = '▶ Play Video';
+      vidRpent.pause();
+      vidRpent.removeAttribute('src');
+    }
+
+    vidStage.onloadedmetadata = applySpeed;
+    vidRpent.onloadedmetadata = applySpeed;
+    buildTraceDrawer(caseItem);
+  }
+
+  function renderSelector() {
+    const sel = document.getElementById('case-selector');
+    const filtered = DATA.cases.filter(c => activeCategory === 'all' || c.category === activeCategory);
+    sel.innerHTML = '';
+    filtered.forEach(c => {
+      const card = document.createElement('button');
+      card.className = 'case-pill' + (activeCase && activeCase.id === c.id ? ' selected' : '');
+      card.innerHTML = `
+        <div class="cp-top">
+          <span>${esc(c.benchmark)}</span>
+          ${c.rpent ? '<span class="tag-paired">STAGE vs RPent</span>' : '<span>STAGE Trace</span>'}
+        </div>
+        <div class="cp-title">${esc(c.task)} <span style="font-weight:500;color:var(--muted)">(s${c.seed})</span></div>
+        <div class="cp-sub">${esc(c.suite_label)}</div>
+      `;
+      card.onclick = () => selectCase(c);
+      sel.appendChild(card);
+    });
+  }
+
+  function renderCohortTable() {
+    const tbody = document.getElementById('cohort-tbody');
+    const treeBase = DATA.repo_url + '/tree/main/';
+    tbody.innerHTML = DATA.cohorts.map(c => {
+      const suites = Object.entries(c.suites);
+      const [s1, v1] = suites[0];
+      const [s2, v2] = suites[1];
+      const isOurs = c.method.startsWith('STAGE');
+      const dirPath = c.metadata_jsonl.replace(/\/metadata\.jsonl$/, '');
+      return `
+        <tr class="${isOurs ? 'ours-row' : ''}">
+          <td>${esc(c.table_reference.split('—')[0].trim())}</td>
+          <td>${esc(c.benchmark)}</td>
+          <td>${esc(c.method)}</td>
+          <td>${esc(c.vlm)}</td>
+          <td>${esc(c.executors)}</td>
+          <td class="num">${esc(s1)}: ${v1.task_sr_pct.toFixed(2)}%</td>
+          <td class="num">${esc(s2)}: ${v2.task_sr_pct.toFixed(2)}%</td>
+          <td class="num"><strong>${c.avg_task_sr_pct.toFixed(2)}%</strong></td>
+          <td class="num">${c.episode_count}</td>
+          <td><a href="${treeBase + esc(dirPath)}" target="_blank" rel="noopener"><code>${esc(dirPath)}</code></a></td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  vidStage.addEventListener('timeupdate', () => {
+    if (!activeCase) return;
+    const step = Math.round(vidStage.currentTime * (activeCase.fps || 20));
+    updateReadout(activeCase.stage.trace, step, document.getElementById('stage-step-label'), document.getElementById('ph-stage'), document.getElementById('ro-stage'));
+  });
+
+  vidRpent.addEventListener('timeupdate', () => {
+    if (!activeCase || !activeCase.rpent) return;
+    const step = Math.round(vidRpent.currentTime * (activeCase.fps || 20));
+    updateReadout(activeCase.rpent.trace, step, document.getElementById('rpent-step-label'), document.getElementById('ph-rpent'), document.getElementById('ro-rpent'));
+  });
+
+  document.getElementById('btn-play-both').onclick = () => {
+    applySpeed();
+    vidStage.play().catch(() => {});
+    if (activeCase && activeCase.rpent) vidRpent.play().catch(() => {});
+  };
+  document.getElementById('btn-pause-both').onclick = () => {
+    vidStage.pause();
+    if (activeCase && activeCase.rpent) vidRpent.pause();
+  };
+  document.getElementById('btn-reset-both').onclick = () => {
+    vidStage.pause();
+    vidStage.currentTime = 0;
+    if (activeCase && activeCase.rpent) {
+      vidRpent.pause();
+      vidRpent.currentTime = 0;
+    }
+  };
+  speedSelect.onchange = applySpeed;
+
+  document.querySelectorAll('#category-tabs .tab-btn').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('#category-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeCategory = btn.dataset.cat;
+      const matching = DATA.cases.filter(c => activeCategory === 'all' || c.category === activeCategory);
+      if (matching.length && (!activeCase || (activeCategory !== 'all' && activeCase.category !== activeCategory))) {
+        selectCase(matching[0]);
+      } else {
+        renderSelector();
+      }
+    };
+  });
+
+  fetch('showcase_data.json')
+    .then(r => r.json())
+    .then(data => {
+      DATA = data;
+      renderCohortTable();
+      selectCase(DATA.cases[0]);
+    })
+    .catch(err => {
+      document.getElementById('st-title').textContent = 'Failed to load showcase_data.json: ' + err;
+    });
+})();
+</script>
+</body>
+</html>

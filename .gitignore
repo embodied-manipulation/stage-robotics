@@ -33,3 +33,11 @@ MUJOCO_LOG.TXT
 subscription_auth/
 stage/**/init_files/
 stage/**/init_states/
+
+# Curated public rollout trajectories and showcase media
+!data/
+!data/rollouts/
+!data/rollouts/**/*.npz
+!docs/
+!docs/videos/
+!docs/videos/*.mp4

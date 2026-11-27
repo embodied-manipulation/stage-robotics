@@ -1,0 +1,5220 @@
+{
+  "schema": "stage.showcase-page/v1",
+  "repo_url": "https://github.com/embodied-manipulation/stage-robotics",
+  "rollouts_url": "https://github.com/embodied-manipulation/stage-robotics/tree/main/data/rollouts",
+  "cohorts": [
+    {
+      "cohort_id": "libero_pro_rpent_hybrid_pi_rlinf",
+      "table_reference": "Table 1(a) — Agentic methods: RPent-Hybrid*",
+      "benchmark": "LIBERO-PRO",
+      "method": "RPent-Hybrid",
+      "vlm": "GPT-6 Astra (low)",
+      "vla": "pi_RLinf",
+      "executors": "pi_RLinf + CaP",
+      "episode_count": 100,
+      "avg_task_sr_pct": 54.0,
+      "suites": {
+        "long_task": {
+          "episodes": 50,
+          "successes": 28,
+          "task_sr_pct": 56.0,
+          "subtask_sr_pct": 70.0,
+          "mean_executed_actions": 1107.4
+        },
+        "long_swap": {
+          "episodes": 50,
+          "successes": 26,
+          "task_sr_pct": 52.0,
+          "subtask_sr_pct": 66.0,
+          "mean_executed_actions": 1286.2
+        }
+      },
+      "metadata_jsonl": "data/rollouts/libero_pro/rpent_hybrid_pi_rlinf/metadata.jsonl",
+      "trajectories_dir": "data/rollouts/libero_pro/rpent_hybrid_pi_rlinf/trajectories"
+    },
+    {
+      "cohort_id": "libero_pro_stage_pi_rlinf",
+      "table_reference": "Table 1(a) — Ours: STAGE",
+      "benchmark": "LIBERO-PRO",
+      "method": "STAGE",
+      "vlm": "GPT-6 Astra (low)",
+      "vla": "pi_RLinf",
+      "executors": "pi_RLinf + CaP",
+      "episode_count": 100,
+      "avg_task_sr_pct": 80.0,
+      "suites": {
+        "long_task": {
+          "episodes": 50,
+          "successes": 45,
+          "task_sr_pct": 90.0,
+          "subtask_sr_pct": 90.0,
+          "mean_executed_actions": 640.4
+        },
+        "long_swap": {
+          "episodes": 50,
+          "successes": 35,
+          "task_sr_pct": 70.0,
+          "subtask_sr_pct": 81.0,
+          "mean_executed_actions": 1146.3
+        }
+      },
+      "metadata_jsonl": "data/rollouts/libero_pro/stage_pi_rlinf/metadata.jsonl",
+      "trajectories_dir": "data/rollouts/libero_pro/stage_pi_rlinf/trajectories"
+    },
+    {
+      "cohort_id": "robocasa365_rpent_hybrid_xr1",
+      "table_reference": "Table 1(b) — Agentic methods: RPent-Hybrid*",
+      "benchmark": "RoboCasa365",
+      "method": "RPent-Hybrid",
+      "vlm": "GPT-6 Astra (low)",
+      "vla": "XR-1",
+      "executors": "XR-1 + CaP",
+      "episode_count": 160,
+      "avg_task_sr_pct": 21.88,
+      "suites": {
+        "composite_seen": {
+          "episodes": 80,
+          "successes": 11,
+          "task_sr_pct": 13.75,
+          "subtask_sr_pct": 46.04,
+          "mean_executed_actions": 1280.2
+        },
+        "composite_unseen": {
+          "episodes": 80,
+          "successes": 24,
+          "task_sr_pct": 30.0,
+          "subtask_sr_pct": 57.83,
+          "mean_executed_actions": 1898.8
+        }
+      },
+      "metadata_jsonl": "data/rollouts/robocasa365/rpent_hybrid_xr1/metadata.jsonl",
+      "trajectories_dir": "data/rollouts/robocasa365/rpent_hybrid_xr1/trajectories"
+    },
+    {
+      "cohort_id": "robocasa365_stage_rldx1",
+      "table_reference": "Table 1(b) — Ours: STAGE (RLDX-1)",
+      "benchmark": "RoboCasa365",
+      "method": "STAGE (RLDX-1)",
+      "vlm": "GPT-6 Astra (low)",
+      "vla": "RLDX-1",
+      "executors": "RLDX-1 + CaP",
+      "episode_count": 160,
+      "avg_task_sr_pct": 35.63,
+      "suites": {
+        "composite_seen": {
+          "episodes": 80,
+          "successes": 29,
+          "task_sr_pct": 36.25,
+          "subtask_sr_pct": null,
+          "mean_executed_actions": 2215.0
+        },
+        "composite_unseen": {
+          "episodes": 80,
+          "successes": 28,
+          "task_sr_pct": 35.0,
+          "subtask_sr_pct": 57.37,
+          "mean_executed_actions": 1911.8
+        }
+      },
+      "metadata_jsonl": "data/rollouts/robocasa365/stage_rldx1/metadata.jsonl",
+      "trajectories_dir": "data/rollouts/robocasa365/stage_rldx1/trajectories"
+    },
+    {
+      "cohort_id": "robocasa365_stage_xr1",
+      "table_reference": "Table 1(b) — Ours: STAGE (XR-1)",
+      "benchmark": "RoboCasa365",
+      "method": "STAGE (XR-1)",
+      "vlm": "GPT-6 Astra (low)",
+      "vla": "XR-1",
+      "executors": "XR-1 + CaP",
+      "episode_count": 160,
+      "avg_task_sr_pct": 65.0,
+      "suites": {
+        "composite_seen": {
+          "episodes": 80,
+          "successes": 61,
+          "task_sr_pct": 76.25,
+          "subtask_sr_pct": 84.27,
+          "mean_executed_actions": 1675.1
+        },
+        "composite_unseen": {
+          "episodes": 80,
+          "successes": 43,
+          "task_sr_pct": 53.75,
+          "subtask_sr_pct": 78.5,
+          "mean_executed_actions": 1928.6
+        }
+      },
+      "metadata_jsonl": "data/rollouts/robocasa365/stage_xr1/metadata.jsonl",
+      "trajectories_dir": "data/rollouts/robocasa365/stage_xr1/trajectories"
+    }
+  ],
+  "main_table_episode_count": 680,
+  "coupled_case_study_episode_count": 4,
+  "total_trajectory_npz_mb": 30.18,
+  "cases": [
+    {
+      "id": "coupled_board_waffle",
+      "category": "coupled",
+      "featured": true,
+      "badge": "Main Paper Fig. 5 · Shared-Object Coupled Goals",
+      "benchmark": "RoboCasa365 Coupled Diagnostic",
+      "suite_label": "High-Coupling Shared-Object Dependency",
+      "task": "BoardWaffleDependency",
+      "seed": 1758,
+      "fps": 20,
+      "instruction": "Clear the obstructing bowl from the cutting board so carrot and broccoli can be placed on the board, and use that same bowl to reheat the waffle inside the microwave.",
+      "takeaway": "STAGE resolves the shared-object dependency by moving the obstructing bowl off the board, loading the waffle + bowl into the microwave, completing heating via a within-stage VLA→Code handoff (sg012, step 2400), and returning to place vegetables while preserving the heated condition. RPent-Hybrid loses the waffle from the tilted bowl during transport (steps 885–1205); it later places the vegetables on the board, leaving reheating unmet.",
+      "stage": {
+        "video": "videos/board_waffle_stage.mp4",
+        "video_mb": 8.03,
+        "bookmarks": [
+          {
+            "step": 0,
+            "label": "Initial: Bowl blocks board"
+          },
+          {
+            "step": 720,
+            "label": "sg004 (720): Bowl set aside"
+          },
+          {
+            "step": 1520,
+            "label": "sg006 (1520): Bowl + waffle in microwave"
+          },
+          {
+            "step": 2400,
+            "label": "sg012 (2400): VLA→Code button handoff"
+          },
+          {
+            "step": 2440,
+            "label": "Step 2440: Reheating achieved"
+          },
+          {
+            "step": 3040,
+            "label": "sg015 (3040): Carrot placed"
+          },
+          {
+            "step": 4590,
+            "label": "sg024 (4590): Joint A+B Success"
+          }
+        ],
+        "trace": {
+          "episode_id": "coupled_case__stage_xr1__coupled_diagnostic__BoardWaffleDependency_stage_xr1__s1758",
+          "method": "STAGE (XR-1)",
+          "vlm": "GPT-6 Astra (low)",
+          "vla": "XR-1",
+          "executors": "XR-1 + CaP",
+          "task_success": true,
+          "first_success_step": 4583,
+          "executed_actions": 4590,
+          "action_budget": 9360,
+          "vla_actions": 4400,
+          "code_actions": 190,
+          "trajectory_npz": "data/rollouts/case_studies/trajectories/coupled_diagnostic__BoardWaffleDependency_stage_xr1__s1758.traj.npz",
+          "stages": [
+            {
+              "subgoal_id": "sg001",
+              "decision": "start",
+              "parent_subgoal_id": null,
+              "start_step": 0,
+              "end_step": 120,
+              "instruction": "Open the microwave door.",
+              "completion_condition": "The microwave door is open with access to the interior."
+            },
+            {
+              "subgoal_id": "sg002",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 120,
+              "end_step": 560,
+              "instruction": "Place the bowl containing the waffle upright inside the microwave, keeping the waffle in the bowl.",
+              "completion_condition": "The bowl is released upright and supported inside the microwave with the waffle still inside."
+            },
+            {
+              "subgoal_id": "sg003",
+              "decision": "recover",
+              "parent_subgoal_id": "sg002",
+              "start_step": 560,
+              "end_step": 640,
+              "instruction": "Carry the bowl back to the open silver countertop microwave beside the cutting board on the right, and place the bowl inside it.",
+              "completion_condition": "Bowl is released upright inside the open silver countertop microwave beside the cutting board, with waffle retained."
+            },
+            {
+              "subgoal_id": "sg004",
+              "decision": "recover",
+              "parent_subgoal_id": "sg003",
+              "start_step": 640,
+              "end_step": 720,
+              "instruction": "Set the bowl with the waffle upright on the counter beside the built-in microwave.",
+              "completion_condition": "Bowl and waffle are released upright supported on counter near the built-in microwave."
+            },
+            {
+              "subgoal_id": "sg005",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 720,
+              "end_step": 1120,
+              "instruction": "Open the built-in microwave door above the oven.",
+              "completion_condition": "Built-in microwave door is open and interior accessible."
+            },
+            {
+              "subgoal_id": "sg006",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 1120,
+              "end_step": 1520,
+              "instruction": "Place the bowl containing the waffle from the counter inside the open built-in microwave, keeping the bowl upright.",
+              "completion_condition": "Bowl is released upright on microwave turntable with waffle inside."
+            },
+            {
+              "subgoal_id": "sg007",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 1520,
+              "end_step": 1680,
+              "instruction": "Close the built-in microwave door.",
+              "completion_condition": "Microwave door is fully closed with bowl and waffle inside."
+            },
+            {
+              "subgoal_id": "sg008",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 1680,
+              "end_step": 1840,
+              "instruction": "Turn on the built-in microwave.",
+              "completion_condition": "Microwave is running with door closed."
+            },
+            {
+              "subgoal_id": "sg009",
+              "decision": "recover",
+              "parent_subgoal_id": "sg008",
+              "start_step": 1840,
+              "end_step": 2000,
+              "instruction": "Push the microwave door fully shut and move the gripper away from the handle.",
+              "completion_condition": "Door sits flush and stays closed after gripper withdrawal."
+            },
+            {
+              "subgoal_id": "sg010",
+              "decision": "recover",
+              "parent_subgoal_id": "sg009",
+              "start_step": 2000,
+              "end_step": 2240,
+              "instruction": "Move the gripper to the outside face of the open microwave door and push the door closed.",
+              "completion_condition": "Door is flush with microwave frame after gripper withdrawal."
+            },
+            {
+              "subgoal_id": "sg011",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 2240,
+              "end_step": 2360,
+              "instruction": "Press the Start/Enter button on the microwave keypad to turn it on.",
+              "completion_condition": "Microwave runs with door closed, evidenced by light or task progress."
+            },
+            {
+              "subgoal_id": "sg012",
+              "decision": "recover",
+              "parent_subgoal_id": "sg011",
+              "start_step": 2360,
+              "end_step": 2440,
+              "instruction": "Press the Start/Enter button, not Stop/Clear, on the microwave control panel.",
+              "completion_condition": "Microwave turns on with door closed."
+            },
+            {
+              "subgoal_id": "sg013",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 2440,
+              "end_step": 2600,
+              "instruction": "Place the carrot on the cutting board beside the countertop oven.",
+              "completion_condition": "Carrot is released supported on the cutting board."
+            },
+            {
+              "subgoal_id": "sg014",
+              "decision": "recover",
+              "parent_subgoal_id": "sg013",
+              "start_step": 2600,
+              "end_step": 2760,
+              "instruction": "Close the countertop oven door.",
+              "completion_condition": "Countertop oven door is closed and counter in front is exposed."
+            },
+            {
+              "subgoal_id": "sg015",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 2760,
+              "end_step": 3040,
+              "instruction": "Place the carrot on the cutting board beside the countertop oven.",
+              "completion_condition": "Carrot is released supported on cutting board."
+            },
+            {
+              "subgoal_id": "sg016",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 3040,
+              "end_step": 3120,
+              "instruction": "Place the broccoli on the cutting board beside the carrot.",
+              "completion_condition": "Broccoli is released supported on board alongside carrot."
+            },
+            {
+              "subgoal_id": "sg017",
+              "decision": "recover",
+              "parent_subgoal_id": "sg016",
+              "start_step": 3120,
+              "end_step": 3280,
+              "instruction": "Grasp the broccoli around its stem and place it on the cutting board beside the carrot.",
+              "completion_condition": "Broccoli rests released on cutting board beside carrot."
+            },
+            {
+              "subgoal_id": "sg018",
+              "decision": "recover",
+              "parent_subgoal_id": "sg017",
+              "start_step": 3280,
+              "end_step": 3480,
+              "instruction": "Pick up the broccoli with a deep grasp around its sides, then place it beside the carrot on the cutting board.",
+              "completion_condition": "Broccoli released and supported on board beside carrot."
+            },
+            {
+              "subgoal_id": "sg019",
+              "decision": "recover",
+              "parent_subgoal_id": "sg018",
+              "start_step": 3480,
+              "end_step": 3760,
+              "instruction": "Lower the open gripper to the green broccoli on the counter in front of the toaster oven, grasp it, and put it on the cutting board.",
+              "completion_condition": "Broccoli released on cutting board alongside carrot."
+            },
+            {
+              "subgoal_id": "sg020",
+              "decision": "recover",
+              "parent_subgoal_id": "sg019",
+              "start_step": 3760,
+              "end_step": 3910,
+              "instruction": "Open the gripper and lift it straight up away from the broccoli, leaving the broccoli on the cutting board.",
+              "completion_condition": "Gripper clear of broccoli; broccoli rests released on board."
+            },
+            {
+              "subgoal_id": "sg021",
+              "decision": "recover",
+              "parent_subgoal_id": "sg020",
+              "start_step": 3910,
+              "end_step": 4070,
+              "instruction": "Place the broccoli held in the gripper down on the center of the cutting board, then release it.",
+              "completion_condition": "Broccoli supported and released on board beside carrot."
+            },
+            {
+              "subgoal_id": "sg022",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 4070,
+              "end_step": 4470,
+              "instruction": "Pick up the carrot at the far edge of the cutting board and place it fully on the middle of the board beside the broccoli.",
+              "completion_condition": "Carrot and broccoli fully supported on cutting board, released and stable."
+            },
+            {
+              "subgoal_id": "sg023",
+              "decision": "recover",
+              "parent_subgoal_id": "sg022",
+              "start_step": 4470,
+              "end_step": 4550,
+              "instruction": "Move the held carrot to the right over the wooden cutting board beside the broccoli, then lower it onto the board and open the gripper.",
+              "completion_condition": "Carrot released on wooden board beside broccoli."
+            },
+            {
+              "subgoal_id": "sg024",
+              "decision": "recover",
+              "parent_subgoal_id": "sg023",
+              "start_step": 4550,
+              "end_step": 4590,
+              "instruction": "Grasp the middle of the carrot and place the entire carrot lengthwise on the empty back half of the cutting board, with its tip inside the board edges.",
+              "completion_condition": "Entire carrot rests on board with broccoli, released and stable."
+            }
+          ],
+          "calls": [
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 0,
+              "end_step": 40,
+              "steps": 40,
+              "summary": "Open the microwave door."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 40,
+              "end_step": 80,
+              "steps": 40,
+              "summary": "Open the microwave door."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 80,
+              "end_step": 120,
+              "steps": 40,
+              "summary": "Open the microwave door."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 120,
+              "end_step": 160,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle upright inside the microwave, keeping the waffle in the bowl."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 160,
+              "end_step": 200,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle upright inside the microwave, keeping the waffle in the bowl."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 200,
+              "end_step": 240,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle upright inside the microwave, keeping the waffle in the bowl."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 240,
+              "end_step": 280,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle upright inside the microwave, keeping the waffle in the bowl."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 280,
+              "end_step": 320,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle upright inside the microwave, keeping the waffle in the bowl."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 320,
+              "end_step": 360,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle upright inside the microwave, keeping the waffle in the bowl."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 360,
+              "end_step": 400,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle upright inside the microwave, keeping the waffle in the bowl."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 400,
+              "end_step": 440,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle upright inside the microwave, keeping the waffle in the bowl."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 440,
+              "end_step": 480,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle upright inside the microwave, keeping the waffle in the bowl."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 480,
+              "end_step": 520,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle upright inside the microwave, keeping the waffle in the bowl."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 520,
+              "end_step": 560,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle upright inside the microwave, keeping the waffle in the bowl."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 560,
+              "end_step": 600,
+              "steps": 40,
+              "summary": "Carry the bowl back to the open silver countertop microwave beside the cutting board on the right, and place the bowl inside it."
+            },
+            {
+              "tool": "navigate_to",
+              "executor": "code",
+              "start_step": 600,
+              "end_step": 640,
+              "steps": 40,
+              "summary": "{\"xy\": [0.358, -1.852], \"tol\": 0.65}"
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 640,
+              "end_step": 680,
+              "steps": 40,
+              "summary": "Set the bowl with the waffle upright on the counter beside the built-in microwave."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 680,
+              "end_step": 720,
+              "steps": 40,
+              "summary": "Set the bowl with the waffle upright on the counter beside the built-in microwave."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 720,
+              "end_step": 760,
+              "steps": 40,
+              "summary": "Open the built-in microwave door above the oven."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 760,
+              "end_step": 800,
+              "steps": 40,
+              "summary": "Open the built-in microwave door above the oven."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 800,
+              "end_step": 840,
+              "steps": 40,
+              "summary": "Open the built-in microwave door above the oven."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 840,
+              "end_step": 880,
+              "steps": 40,
+              "summary": "Open the built-in microwave door above the oven."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 880,
+              "end_step": 920,
+              "steps": 40,
+              "summary": "Open the built-in microwave door above the oven."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 920,
+              "end_step": 960,
+              "steps": 40,
+              "summary": "Open the built-in microwave door above the oven."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 960,
+              "end_step": 1000,
+              "steps": 40,
+              "summary": "Open the built-in microwave door above the oven."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1000,
+              "end_step": 1040,
+              "steps": 40,
+              "summary": "Open the built-in microwave door above the oven."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1040,
+              "end_step": 1080,
+              "steps": 40,
+              "summary": "Open the built-in microwave door above the oven."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1080,
+              "end_step": 1120,
+              "steps": 40,
+              "summary": "Open the built-in microwave door above the oven."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1120,
+              "end_step": 1160,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle from the counter inside the open built-in microwave, keeping the bowl upright."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1160,
+              "end_step": 1200,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle from the counter inside the open built-in microwave, keeping the bowl upright."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1200,
+              "end_step": 1240,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle from the counter inside the open built-in microwave, keeping the bowl upright."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1240,
+              "end_step": 1280,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle from the counter inside the open built-in microwave, keeping the bowl upright."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1280,
+              "end_step": 1320,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle from the counter inside the open built-in microwave, keeping the bowl upright."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1320,
+              "end_step": 1360,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle from the counter inside the open built-in microwave, keeping the bowl upright."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1360,
+              "end_step": 1400,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle from the counter inside the open built-in microwave, keeping the bowl upright."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1400,
+              "end_step": 1440,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle from the counter inside the open built-in microwave, keeping the bowl upright."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1440,
+              "end_step": 1480,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle from the counter inside the open built-in microwave, keeping the bowl upright."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1480,
+              "end_step": 1520,
+              "steps": 40,
+              "summary": "Place the bowl containing the waffle from the counter inside the open built-in microwave, keeping the bowl upright."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1520,
+              "end_step": 1560,
+              "steps": 40,
+              "summary": "Close the built-in microwave door."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1560,
+              "end_step": 1600,
+              "steps": 40,
+              "summary": "Close the built-in microwave door."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1600,
+              "end_step": 1640,
+              "steps": 40,
+              "summary": "Close the built-in microwave door."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1640,
+              "end_step": 1680,
+              "steps": 40,
+              "summary": "Close the built-in microwave door."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1680,
+              "end_step": 1720,
+              "steps": 40,
+              "summary": "Turn on the built-in microwave."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1720,
+              "end_step": 1760,
+              "steps": 40,
+              "summary": "Turn on the built-in microwave."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1760,
+              "end_step": 1800,
+              "steps": 40,
+              "summary": "Turn on the built-in microwave."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1800,
+              "end_step": 1840,
+              "steps": 40,
+              "summary": "Turn on the built-in microwave."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1840,
+              "end_step": 1880,
+              "steps": 40,
+              "summary": "Push the microwave door fully shut and move the gripper away from the handle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1880,
+              "end_step": 1920,
+              "steps": 40,
+              "summary": "Push the microwave door fully shut and move the gripper away from the handle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1920,
+              "end_step": 1960,
+              "steps": 40,
+              "summary": "Push the microwave door fully shut and move the gripper away from the handle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1960,
+              "end_step": 2000,
+              "steps": 40,
+              "summary": "Push the microwave door fully shut and move the gripper away from the handle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 2000,
+              "end_step": 2040,
+              "steps": 40,
+              "summary": "Move the gripper to the outside face of the open microwave door and push the door closed."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 2040,
+              "end_step": 2080,
+              "steps": 40,
+              "summary": "Move the gripper to the outside face of the open microwave door and push the door closed."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 2080,
+              "end_step": 2120,
+              "steps": 40,
+              "summary": "Move the gripper to the outside face of the open microwave door and push the door closed."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 2120,
+              "end_step": 2160,
+              "steps": 40,
+              "summary": "Move the gripper to the outside face of the open microwave door and push the door closed."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 2160,
+              "end_step": 2200,
+              "steps": 40,
+              "summary": "Move the gripper to the outside face of the open microwave door and push the door closed."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 2200,
+              "end_step": 2240,
+              "steps": 40,
+              "summary": "Move the gripper to the outside face of the open microwave door and push the door closed."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 2240,
+              "end_step": 2280,
+              "steps": 40,
+              "summary": "Press the Start/Enter button on the microwave keypad to turn it on."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 2280,
+              "end_step": 2320,
+              "steps": 40,
+              "summary": "Press the Start/Enter button on the microwave keypad to turn it on."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 2320,
+              "end_step": 2360,
+              "steps": 40,
+              "summary": "Press the Start/Enter button on the microwave keypad to turn it on."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 2360,
+              "end_step": 2400,
+              "steps": 40,
+              "summary": "Press the Start/Enter button, not Stop/Clear, on the microwave control panel."
+            },
+            {
+              "tool": "move_delta",
+              "executor": "code",
+              "start_step": 2400,
+              "end_step": 2440,
+              "steps": 40,
+              "summary": "{\"dxyz\": [0.08, 0, 0]}"
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 2440,
+              "end_step": 2480,
+              "steps": 40,
+              "summary": "Place the carrot on the cutting board beside the countertop oven."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 2480,
+              "end_step": 2520,
+              "steps": 40,
+              "summary": "Place the carrot on the cutting board beside the countertop oven."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 2520,
+              "end_step": 2560,
+              "steps": 40,
+              "summary": "Place the carrot on the cutting board beside the countertop oven."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 2560,
+              "end_step": 2600,
+              "steps": 40,
+              "summary": "Place the carrot on the cutting board beside the countertop oven."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 2600,
+              "end_step": 2640,
+              "steps": 40,
+              "summary": "Close the countertop oven door."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 2640,
+              "end_step": 2680,
+              "steps": 40,
+              "summary": "Close the countertop oven door."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 2680,
+              "end_step": 2720,
+              "steps": 40,
+              "summary": "Close the countertop oven door."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 2720,
+              "end_step": 2760,
+              "steps": 40,
+              "summary": "Close the countertop oven door."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 2760,
+              "end_step": 2800,
+              "steps": 40,
+              "summary": "Place the carrot on the cutting board beside the countertop oven."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 2800,
+              "end_step": 2840,
+              "steps": 40,
+              "summary": "Place the carrot on the cutting board beside the countertop oven."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 2840,
+              "end_step": 2880,
+              "steps": 40,
+              "summary": "Place the carrot on the cutting board beside the countertop oven."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 2880,
+              "end_step": 2920,
+              "steps": 40,
+              "summary": "Place the carrot on the cutting board beside the countertop oven."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 2920,
+              "end_step": 2960,
+              "steps": 40,
+              "summary": "Place the carrot on the cutting board beside the countertop oven."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 2960,
+              "end_step": 3000,
+              "steps": 40,
+              "summary": "Place the carrot on the cutting board beside the countertop oven."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3000,
+              "end_step": 3040,
+              "steps": 40,
+              "summary": "Place the carrot on the cutting board beside the countertop oven."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3040,
+              "end_step": 3080,
+              "steps": 40,
+              "summary": "Place the broccoli on the cutting board beside the carrot."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3080,
+              "end_step": 3120,
+              "steps": 40,
+              "summary": "Place the broccoli on the cutting board beside the carrot."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3120,
+              "end_step": 3160,
+              "steps": 40,
+              "summary": "Grasp the broccoli around its stem and place it on the cutting board beside the carrot."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3160,
+              "end_step": 3200,
+              "steps": 40,
+              "summary": "Grasp the broccoli around its stem and place it on the cutting board beside the carrot."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3200,
+              "end_step": 3240,
+              "steps": 40,
+              "summary": "Grasp the broccoli around its stem and place it on the cutting board beside the carrot."
+            },
+            {
+              "tool": "scripted_grasp",
+              "executor": "code",
+              "start_step": 3240,
+              "end_step": 3280,
+              "steps": 40,
+              "summary": "{\"xyz\": [0.539, -1.752, 0.983], \"approach_z\": 0.1, \"grasp_z_offset\": -0.025, \"step_clip\": 0.01}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3280,
+              "end_step": 3320,
+              "steps": 40,
+              "summary": "Pick up the broccoli with a deep grasp around its sides, then place it beside the carrot on the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3320,
+              "end_step": 3360,
+              "steps": 40,
+              "summary": "Pick up the broccoli with a deep grasp around its sides, then place it beside the carrot on the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3360,
+              "end_step": 3400,
+              "steps": 40,
+              "summary": "Pick up the broccoli with a deep grasp around its sides, then place it beside the carrot on the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3400,
+              "end_step": 3440,
+              "steps": 40,
+              "summary": "Pick up the broccoli with a deep grasp around its sides, then place it beside the carrot on the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3440,
+              "end_step": 3480,
+              "steps": 40,
+              "summary": "Pick up the broccoli with a deep grasp around its sides, then place it beside the carrot on the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3480,
+              "end_step": 3520,
+              "steps": 40,
+              "summary": "Lower the open gripper to the green broccoli on the counter in front of the toaster oven, grasp it, and put it on the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3520,
+              "end_step": 3560,
+              "steps": 40,
+              "summary": "Lower the open gripper to the green broccoli on the counter in front of the toaster oven, grasp it, and put it on the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3560,
+              "end_step": 3600,
+              "steps": 40,
+              "summary": "Lower the open gripper to the green broccoli on the counter in front of the toaster oven, grasp it, and put it on the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3600,
+              "end_step": 3640,
+              "steps": 40,
+              "summary": "Lower the open gripper to the green broccoli on the counter in front of the toaster oven, grasp it, and put it on the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3640,
+              "end_step": 3680,
+              "steps": 40,
+              "summary": "Lower the open gripper to the green broccoli on the counter in front of the toaster oven, grasp it, and put it on the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3680,
+              "end_step": 3720,
+              "steps": 40,
+              "summary": "Lower the open gripper to the green broccoli on the counter in front of the toaster oven, grasp it, and put it on the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3720,
+              "end_step": 3760,
+              "steps": 40,
+              "summary": "Lower the open gripper to the green broccoli on the counter in front of the toaster oven, grasp it, and put it on the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3760,
+              "end_step": 3800,
+              "steps": 40,
+              "summary": "Open the gripper and lift it straight up away from the broccoli, leaving the broccoli on the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3800,
+              "end_step": 3840,
+              "steps": 40,
+              "summary": "Open the gripper and lift it straight up away from the broccoli, leaving the broccoli on the cutting board."
+            },
+            {
+              "tool": "release",
+              "executor": "code",
+              "start_step": 3840,
+              "end_step": 3870,
+              "steps": 30,
+              "summary": "{\"steps\": 30}"
+            },
+            {
+              "tool": "move_delta",
+              "executor": "code",
+              "start_step": 3870,
+              "end_step": 3910,
+              "steps": 40,
+              "summary": "{\"dxyz\": [0, 0, 0.12], \"gripper\": -1, \"step_clip\": 0.01}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3910,
+              "end_step": 3950,
+              "steps": 40,
+              "summary": "Place the broccoli held in the gripper down on the center of the cutting board, then release it."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3950,
+              "end_step": 3990,
+              "steps": 40,
+              "summary": "Place the broccoli held in the gripper down on the center of the cutting board, then release it."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3990,
+              "end_step": 4030,
+              "steps": 40,
+              "summary": "Place the broccoli held in the gripper down on the center of the cutting board, then release it."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 4030,
+              "end_step": 4070,
+              "steps": 40,
+              "summary": "Place the broccoli held in the gripper down on the center of the cutting board, then release it."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 4070,
+              "end_step": 4110,
+              "steps": 40,
+              "summary": "Pick up the carrot at the far edge of the cutting board and place it fully on the middle of the board beside the broccoli."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 4110,
+              "end_step": 4150,
+              "steps": 40,
+              "summary": "Pick up the carrot at the far edge of the cutting board and place it fully on the middle of the board beside the broccoli."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 4150,
+              "end_step": 4190,
+              "steps": 40,
+              "summary": "Pick up the carrot at the far edge of the cutting board and place it fully on the middle of the board beside the broccoli."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 4190,
+              "end_step": 4230,
+              "steps": 40,
+              "summary": "Pick up the carrot at the far edge of the cutting board and place it fully on the middle of the board beside the broccoli."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 4230,
+              "end_step": 4270,
+              "steps": 40,
+              "summary": "Pick up the carrot at the far edge of the cutting board and place it fully on the middle of the board beside the broccoli."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 4270,
+              "end_step": 4310,
+              "steps": 40,
+              "summary": "Pick up the carrot at the far edge of the cutting board and place it fully on the middle of the board beside the broccoli."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 4310,
+              "end_step": 4350,
+              "steps": 40,
+              "summary": "Pick up the carrot at the far edge of the cutting board and place it fully on the middle of the board beside the broccoli."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 4350,
+              "end_step": 4390,
+              "steps": 40,
+              "summary": "Pick up the carrot at the far edge of the cutting board and place it fully on the middle of the board beside the broccoli."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 4390,
+              "end_step": 4430,
+              "steps": 40,
+              "summary": "Pick up the carrot at the far edge of the cutting board and place it fully on the middle of the board beside the broccoli."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 4430,
+              "end_step": 4470,
+              "steps": 40,
+              "summary": "Pick up the carrot at the far edge of the cutting board and place it fully on the middle of the board beside the broccoli."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 4470,
+              "end_step": 4510,
+              "steps": 40,
+              "summary": "Move the held carrot to the right over the wooden cutting board beside the broccoli, then lower it onto the board and open the gripper."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 4510,
+              "end_step": 4550,
+              "steps": 40,
+              "summary": "Move the held carrot to the right over the wooden cutting board beside the broccoli, then lower it onto the board and open the gripper."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 4550,
+              "end_step": 4590,
+              "steps": 40,
+              "summary": "Grasp the middle of the carrot and place the entire carrot lengthwise on the empty back half of the cutting board, with its tip inside the b"
+            }
+          ]
+        }
+      },
+      "rpent": {
+        "video": "videos/board_waffle_rpent.mp4",
+        "video_mb": 9.57,
+        "bookmarks": [
+          {
+            "step": 0,
+            "label": "Initial scene"
+          },
+          {
+            "step": 885,
+            "label": "Step 885: Bowl lifted"
+          },
+          {
+            "step": 1085,
+            "label": "Step 1085: Tilted transport"
+          },
+          {
+            "step": 1205,
+            "label": "Step 1205: Waffle lost outside bowl"
+          },
+          {
+            "step": 2979,
+            "label": "Step 2979: Vegetables placed (Goal A only)"
+          },
+          {
+            "step": 3627,
+            "label": "Step 3627: Terminates (Goal B unmet)"
+          }
+        ],
+        "trace": {
+          "episode_id": "coupled_case__rpent_hybrid_xr1__coupled_diagnostic__BoardWaffleDependency_rpent_hybrid_xr1__s1758",
+          "method": "RPent-Hybrid",
+          "vlm": "GPT-6 Astra (low)",
+          "vla": "XR-1",
+          "executors": "XR-1 + CaP",
+          "task_success": false,
+          "first_success_step": null,
+          "executed_actions": 3627,
+          "action_budget": 9360,
+          "vla_actions": 3040,
+          "code_actions": 587,
+          "trajectory_npz": "data/rollouts/case_studies/trajectories/coupled_diagnostic__BoardWaffleDependency_rpent_hybrid_xr1__s1758.traj.npz",
+          "stages": [],
+          "calls": [
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 0,
+              "end_step": 160,
+              "steps": 160,
+              "summary": "Open the microwave door."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 160,
+              "end_step": 320,
+              "steps": 160,
+              "summary": "Grasp the black bowl containing the waffle on the cutting board and lift it upright, keeping the waffle inside."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 320,
+              "end_step": 400,
+              "steps": 80,
+              "summary": "Grasp the black bowl containing the waffle on the cutting board and lift it upright, keeping the waffle inside."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 400,
+              "end_step": 560,
+              "steps": 160,
+              "summary": "Grasp the black bowl containing the waffle on the cutting board and lift it upright, keeping the waffle inside."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 560,
+              "end_step": 587,
+              "steps": 27,
+              "summary": "{\"xyz\": [0.561, -1.426, 1.15]}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 587,
+              "end_step": 707,
+              "steps": 120,
+              "summary": "Pick up the bowl."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 707,
+              "end_step": 867,
+              "steps": 160,
+              "summary": "Pick up the bowl."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 867,
+              "end_step": 885,
+              "steps": 18,
+              "summary": "{\"xyz\": [0.563, -1.393, 1.168]}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 885,
+              "end_step": 1085,
+              "steps": 200,
+              "summary": "{\"xyz\": [0.569, -1.648, 1.12]}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1085,
+              "end_step": 1205,
+              "steps": 120,
+              "summary": "Place the held bowl with the waffle upright inside the open microwave."
+            },
+            {
+              "tool": "move_delta",
+              "executor": "code",
+              "start_step": 1205,
+              "end_step": 1285,
+              "steps": 80,
+              "summary": "{\"dxyz\": [0, 0, 0.25]}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1285,
+              "end_step": 1445,
+              "steps": 160,
+              "summary": "Pick up the black bowl to the right of the cutting board and place it upright inside the open microwave."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1445,
+              "end_step": 1605,
+              "steps": 160,
+              "summary": "Pick up the black bowl to the right of the cutting board and place it upright inside the open microwave."
+            },
+            {
+              "tool": "move_base",
+              "executor": "code",
+              "start_step": 1605,
+              "end_step": 1620,
+              "steps": 15,
+              "summary": "{\"lateral\": 0.3, \"steps\": 15}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1620,
+              "end_step": 1780,
+              "steps": 160,
+              "summary": "Pick up the carrot and place it on the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1780,
+              "end_step": 1940,
+              "steps": 160,
+              "summary": "Pick up the carrot and place it on the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1940,
+              "end_step": 2100,
+              "steps": 160,
+              "summary": "Close the microwave door."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 2100,
+              "end_step": 2180,
+              "steps": 80,
+              "summary": "Close the microwave door."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 2180,
+              "end_step": 2340,
+              "steps": 160,
+              "summary": "Close the microwave door."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 2340,
+              "end_step": 2356,
+              "steps": 16,
+              "summary": "{\"xyz\": [0.64, -1.87, 1.17]}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 2356,
+              "end_step": 2476,
+              "steps": 120,
+              "summary": "Pick up the carrot."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 2476,
+              "end_step": 2495,
+              "steps": 19,
+              "summary": "{\"xyz\": [0.58, -1.663, 1.12]}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 2495,
+              "end_step": 2659,
+              "steps": 164,
+              "summary": "{\"xyz\": [0.483, -1.417, 1.1]}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 2659,
+              "end_step": 2819,
+              "steps": 160,
+              "summary": "Place the carrot fully on top of the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 2819,
+              "end_step": 2979,
+              "steps": 160,
+              "summary": "Place the carrot fully on top of the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 2979,
+              "end_step": 3139,
+              "steps": 160,
+              "summary": "Open the microwave door."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3139,
+              "end_step": 3299,
+              "steps": 160,
+              "summary": "Open the microwave door."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 3299,
+              "end_step": 3327,
+              "steps": 28,
+              "summary": "{\"xyz\": [0.675, -1.81, 1.25]}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3327,
+              "end_step": 3487,
+              "steps": 160,
+              "summary": "Open the microwave door."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 3487,
+              "end_step": 3607,
+              "steps": 120,
+              "summary": "Open the microwave door."
+            },
+            {
+              "tool": "move_base",
+              "executor": "code",
+              "start_step": 3607,
+              "end_step": 3627,
+              "steps": 20,
+              "summary": "{\"forward\": -0.4, \"steps\": 20}"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "coupled_breakfast_coffee",
+      "category": "coupled",
+      "featured": true,
+      "badge": "Teaser & Appendix Fig. S3(a) · Multi-Area Composition",
+      "benchmark": "RoboCasa365 Coupled Diagnostic",
+      "suite_label": "Low-Coupling Two-Goal Composition",
+      "task": "BreakfastCoffeeComposition",
+      "seed": 1758,
+      "fps": 20,
+      "instruction": "Place the croissant and jam jar onto the cutting board, then position the mug under the coffee machine dispenser and start brewing coffee.",
+      "takeaway": "STAGE coordinates VLA croissant placement, programmatic Code jam placement, and VLA coffee preparation across two kitchen workspaces to satisfy both goals simultaneously (2,052 steps). RPent-Hybrid terminates at 1,489 steps without achieving either native completion predicate.",
+      "stage": {
+        "video": "videos/breakfast_coffee_stage.mp4",
+        "video_mb": 2.24,
+        "bookmarks": [
+          {
+            "step": 0,
+            "label": "Step 0: Empty cutting board"
+          },
+          {
+            "step": 280,
+            "label": "Step 280: VLA places croissant"
+          },
+          {
+            "step": 868,
+            "label": "Step 868: Code places jam jar"
+          },
+          {
+            "step": 1675,
+            "label": "Step 1675: VLA positions mug"
+          },
+          {
+            "step": 2052,
+            "label": "Step 2052: Coffee brewed (Joint Success)"
+          }
+        ],
+        "trace": {
+          "episode_id": "coupled_case__stage_xr1__coupled_diagnostic__BreakfastCoffeeComposition_stage_xr1__s1758",
+          "method": "STAGE (XR-1)",
+          "vlm": "GPT-6 Astra (low)",
+          "vla": "XR-1",
+          "executors": "XR-1 + CaP",
+          "task_success": true,
+          "first_success_step": 2048,
+          "executed_actions": 2052,
+          "action_budget": 6000,
+          "vla_actions": 1592,
+          "code_actions": 460,
+          "trajectory_npz": "data/rollouts/case_studies/trajectories/coupled_diagnostic__BreakfastCoffeeComposition_stage_xr1__s1758.traj.npz",
+          "stages": [
+            {
+              "subgoal_id": "sg001",
+              "decision": "start",
+              "parent_subgoal_id": null,
+              "start_step": 0,
+              "end_step": 280,
+              "instruction": "Place the croissant from the plate onto the cutting board.",
+              "completion_condition": "The croissant rests on the cutting board and the gripper has released it."
+            },
+            {
+              "subgoal_id": "sg002",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 280,
+              "end_step": 400,
+              "instruction": "Place the jar of jam from the shelf onto the cutting board beside the croissant.",
+              "completion_condition": "The jam jar rests upright on the cutting board, released, with the croissant still on the board."
+            },
+            {
+              "subgoal_id": "sg003",
+              "decision": "recover",
+              "parent_subgoal_id": "sg002",
+              "start_step": 400,
+              "end_step": 440,
+              "instruction": "Pick up the dark jam jar with the red lid on the left side of the shelf and place it on the cutting board beside the croissant.",
+              "completion_condition": "The red-lidded jam jar is released upright on the cutting board beside the croissant."
+            },
+            {
+              "subgoal_id": "sg004",
+              "decision": "recover",
+              "parent_subgoal_id": "sg003",
+              "start_step": 440,
+              "end_step": 520,
+              "instruction": "Place the orange mug upright back on the shelf and release it.",
+              "completion_condition": "The orange mug is upright and supported on the shelf with the gripper released."
+            },
+            {
+              "subgoal_id": "sg005",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 520,
+              "end_step": 653,
+              "instruction": "Place the red-lidded jam jar on the cutting board beside the croissant.",
+              "completion_condition": "Jam jar is upright and released on the board, with the croissant preserved."
+            },
+            {
+              "subgoal_id": "sg006",
+              "decision": "recover",
+              "parent_subgoal_id": "sg005",
+              "start_step": 653,
+              "end_step": 868,
+              "instruction": "Grasp the red-lidded jam jar securely around its body and place it upright on the cutting board beside the croissant.",
+              "completion_condition": "The jar is released upright on the board with the croissant still supported there."
+            },
+            {
+              "subgoal_id": "sg007",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 868,
+              "end_step": 1308,
+              "instruction": "Place the orange mug upright under the coffee machine dispenser.",
+              "completion_condition": "The orange mug is released upright on the coffee machine tray beneath its dispenser."
+            },
+            {
+              "subgoal_id": "sg008",
+              "decision": "recover",
+              "parent_subgoal_id": "sg007",
+              "start_step": 1308,
+              "end_step": 1435,
+              "instruction": "Pick up the orange mug and place it farther back on the coffee machine drip tray directly beneath the spout.",
+              "completion_condition": "Mug is released upright on the machine drip tray beneath the spout, with coffee_supported true."
+            },
+            {
+              "subgoal_id": "sg009",
+              "decision": "recover",
+              "parent_subgoal_id": "sg008",
+              "start_step": 1435,
+              "end_step": 1475,
+              "instruction": "Stand the orange mug upright on the counter in front of the coffee machine and release it.",
+              "completion_condition": "The mug is upright and released with stable counter support."
+            },
+            {
+              "subgoal_id": "sg010",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 1475,
+              "end_step": 1675,
+              "instruction": "Place the orange mug on the coffee machine drip tray under the dispenser.",
+              "completion_condition": "The mug is upright and released on the drip tray beneath the dispenser."
+            },
+            {
+              "subgoal_id": "sg011",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 1675,
+              "end_step": 1893,
+              "instruction": "Press the coffee machine button to dispense coffee into the mug.",
+              "completion_condition": "The coffee machine is activated with the mug remaining upright beneath the dispenser and coffee completion feedback true."
+            },
+            {
+              "subgoal_id": "sg012",
+              "decision": "recover",
+              "parent_subgoal_id": "sg011",
+              "start_step": 1893,
+              "end_step": 2052,
+              "instruction": "Align a fingertip with the coffee button and press it to start dispensing into the mug.",
+              "completion_condition": "Coffee activation feedback is true with both arrangements preserved."
+            }
+          ],
+          "calls": [
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 0,
+              "end_step": 40,
+              "steps": 40,
+              "summary": "Place the croissant from the plate onto the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 40,
+              "end_step": 80,
+              "steps": 40,
+              "summary": "Place the croissant from the plate onto the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 80,
+              "end_step": 120,
+              "steps": 40,
+              "summary": "Place the croissant from the plate onto the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 120,
+              "end_step": 160,
+              "steps": 40,
+              "summary": "Place the croissant from the plate onto the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 160,
+              "end_step": 200,
+              "steps": 40,
+              "summary": "Place the croissant from the plate onto the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 200,
+              "end_step": 240,
+              "steps": 40,
+              "summary": "Place the croissant from the plate onto the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 240,
+              "end_step": 280,
+              "steps": 40,
+              "summary": "Place the croissant from the plate onto the cutting board."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 280,
+              "end_step": 320,
+              "steps": 40,
+              "summary": "Place the jar of jam from the shelf onto the cutting board beside the croissant."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 320,
+              "end_step": 360,
+              "steps": 40,
+              "summary": "Place the jar of jam from the shelf onto the cutting board beside the croissant."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 360,
+              "end_step": 400,
+              "steps": 40,
+              "summary": "Place the jar of jam from the shelf onto the cutting board beside the croissant."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 400,
+              "end_step": 440,
+              "steps": 40,
+              "summary": "Pick up the dark jam jar with the red lid on the left side of the shelf and place it on the cutting board beside the croissant."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 440,
+              "end_step": 480,
+              "steps": 40,
+              "summary": "Place the orange mug upright back on the shelf and release it."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 480,
+              "end_step": 520,
+              "steps": 40,
+              "summary": "Place the orange mug upright back on the shelf and release it."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 520,
+              "end_step": 546,
+              "steps": 26,
+              "summary": "{\"xyz\": [2.787, -1.33, 1.55], \"gripper\": -1}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 546,
+              "end_step": 559,
+              "steps": 13,
+              "summary": "{\"xyz\": [2.948, -1.195, 1.48], \"gripper\": -1}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 559,
+              "end_step": 599,
+              "steps": 40,
+              "summary": "Place the red-lidded jam jar on the cutting board beside the croissant."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 599,
+              "end_step": 608,
+              "steps": 9,
+              "summary": "{\"xyz\": [2.948, -1.195, 1.45], \"gripper\": -1}"
+            },
+            {
+              "tool": "set_gripper",
+              "executor": "code",
+              "start_step": 608,
+              "end_step": 620,
+              "steps": 12,
+              "summary": "{\"gripper\": 1, \"steps\": 12}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 620,
+              "end_step": 631,
+              "steps": 11,
+              "summary": "{\"xyz\": [2.963, -1.186, 1.54]}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 631,
+              "end_step": 653,
+              "steps": 22,
+              "summary": "{\"xyz\": [2.72, -1.195, 1.547]}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 653,
+              "end_step": 669,
+              "steps": 16,
+              "summary": "{\"xyz\": [2.847, -1.163, 1.435], \"gripper\": -1}"
+            },
+            {
+              "tool": "set_gripper",
+              "executor": "code",
+              "start_step": 669,
+              "end_step": 687,
+              "steps": 18,
+              "summary": "{\"gripper\": 1, \"steps\": 18}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 687,
+              "end_step": 697,
+              "steps": 10,
+              "summary": "{\"xyz\": [2.848, -1.157, 1.52], \"step_clip\": 0.008}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 697,
+              "end_step": 717,
+              "steps": 20,
+              "summary": "{\"xyz\": [2.65, -1.164, 1.527], \"step_clip\": 0.008}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 717,
+              "end_step": 745,
+              "steps": 28,
+              "summary": "{\"xyz\": [2.646, -1.3, 1.3], \"step_clip\": 0.008}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 745,
+              "end_step": 779,
+              "steps": 34,
+              "summary": "{\"xyz\": [2.757, -1.443, 1.1], \"step_clip\": 0.008}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 779,
+              "end_step": 803,
+              "steps": 24,
+              "summary": "{\"xyz\": [2.757, -1.443, 0.98], \"step_clip\": 0.006}"
+            },
+            {
+              "tool": "set_gripper",
+              "executor": "code",
+              "start_step": 803,
+              "end_step": 828,
+              "steps": 25,
+              "summary": "{\"gripper\": -1, \"steps\": 25}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 828,
+              "end_step": 868,
+              "steps": 40,
+              "summary": "{\"xyz\": [2.61, -1.445, 1.1], \"gripper\": -1}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 868,
+              "end_step": 908,
+              "steps": 40,
+              "summary": "Place the orange mug upright under the coffee machine dispenser."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 908,
+              "end_step": 948,
+              "steps": 40,
+              "summary": "Place the orange mug upright under the coffee machine dispenser."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 948,
+              "end_step": 988,
+              "steps": 40,
+              "summary": "Place the orange mug upright under the coffee machine dispenser."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 988,
+              "end_step": 1028,
+              "steps": 40,
+              "summary": "Place the orange mug upright under the coffee machine dispenser."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1028,
+              "end_step": 1068,
+              "steps": 40,
+              "summary": "Place the orange mug upright under the coffee machine dispenser."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1068,
+              "end_step": 1108,
+              "steps": 40,
+              "summary": "Place the orange mug upright under the coffee machine dispenser."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1108,
+              "end_step": 1148,
+              "steps": 40,
+              "summary": "Place the orange mug upright under the coffee machine dispenser."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1148,
+              "end_step": 1188,
+              "steps": 40,
+              "summary": "Place the orange mug upright under the coffee machine dispenser."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1188,
+              "end_step": 1228,
+              "steps": 40,
+              "summary": "Place the orange mug upright under the coffee machine dispenser."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1228,
+              "end_step": 1268,
+              "steps": 40,
+              "summary": "Place the orange mug upright under the coffee machine dispenser."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1268,
+              "end_step": 1308,
+              "steps": 40,
+              "summary": "Place the orange mug upright under the coffee machine dispenser."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1308,
+              "end_step": 1348,
+              "steps": 40,
+              "summary": "Pick up the orange mug and place it farther back on the coffee machine drip tray directly beneath the spout."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1348,
+              "end_step": 1388,
+              "steps": 40,
+              "summary": "Pick up the orange mug and place it farther back on the coffee machine drip tray directly beneath the spout."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 1388,
+              "end_step": 1411,
+              "steps": 23,
+              "summary": "{\"xyz\": [2.62, -1.79, 1.16], \"gripper\": -1}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 1411,
+              "end_step": 1435,
+              "steps": 24,
+              "summary": "{\"xyz\": [2.594, -1.805, 0.988], \"gripper\": -1, \"step_clip\": 0.008}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1435,
+              "end_step": 1475,
+              "steps": 40,
+              "summary": "Stand the orange mug upright on the counter in front of the coffee machine and release it."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1475,
+              "end_step": 1515,
+              "steps": 40,
+              "summary": "Place the orange mug on the coffee machine drip tray under the dispenser."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1515,
+              "end_step": 1555,
+              "steps": 40,
+              "summary": "Place the orange mug on the coffee machine drip tray under the dispenser."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1555,
+              "end_step": 1595,
+              "steps": 40,
+              "summary": "Place the orange mug on the coffee machine drip tray under the dispenser."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1595,
+              "end_step": 1635,
+              "steps": 40,
+              "summary": "Place the orange mug on the coffee machine drip tray under the dispenser."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1635,
+              "end_step": 1675,
+              "steps": 40,
+              "summary": "Place the orange mug on the coffee machine drip tray under the dispenser."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1675,
+              "end_step": 1715,
+              "steps": 40,
+              "summary": "Press the coffee machine button to dispense coffee into the mug."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1715,
+              "end_step": 1755,
+              "steps": 40,
+              "summary": "Press the coffee machine button to dispense coffee into the mug."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1755,
+              "end_step": 1795,
+              "steps": 40,
+              "summary": "Press the coffee machine button to dispense coffee into the mug."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1795,
+              "end_step": 1835,
+              "steps": 40,
+              "summary": "Press the coffee machine button to dispense coffee into the mug."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 1835,
+              "end_step": 1853,
+              "steps": 18,
+              "summary": "{\"xyz\": [2.65, -1.82, 1.158], \"gripper\": 1}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 1853,
+              "end_step": 1893,
+              "steps": 40,
+              "summary": "{\"xyz\": [2.726, -1.805, 1.131], \"gripper\": 1, \"step_clip\": 0.005}"
+            },
+            {
+              "tool": "move_delta",
+              "executor": "code",
+              "start_step": 1893,
+              "end_step": 1902,
+              "steps": 9,
+              "summary": "{\"dxyz\": [-0.1, 0, 0]}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1902,
+              "end_step": 1942,
+              "steps": 40,
+              "summary": "Align a fingertip with the coffee button and press it to start dispensing into the mug."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1942,
+              "end_step": 1982,
+              "steps": 40,
+              "summary": "Align a fingertip with the coffee button and press it to start dispensing into the mug."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 1982,
+              "end_step": 2012,
+              "steps": 30,
+              "summary": "{\"xyz\": [2.721, -1.809, 1.126], \"gripper\": 1, \"step_clip\": 0.003, \"tol\": 0.004}"
+            },
+            {
+              "tool": "move_delta",
+              "executor": "code",
+              "start_step": 2012,
+              "end_step": 2020,
+              "steps": 8,
+              "summary": "{\"dxyz\": [-0.08, 0, 0]}"
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 2020,
+              "end_step": 2052,
+              "steps": 32,
+              "summary": "Align a fingertip with the coffee button and press it to start dispensing into the mug."
+            }
+          ]
+        }
+      },
+      "rpent": {
+        "video": "videos/breakfast_coffee_rpent.mp4",
+        "video_mb": 0.88,
+        "bookmarks": [
+          {
+            "step": 0,
+            "label": "Step 0: Initial scene"
+          },
+          {
+            "step": 600,
+            "label": "Step 600: Mid-rollout"
+          },
+          {
+            "step": 1489,
+            "label": "Step 1489: Terminates incomplete"
+          }
+        ],
+        "trace": {
+          "episode_id": "coupled_case__rpent_hybrid_xr1__coupled_diagnostic__BreakfastCoffeeComposition_rpent_hybrid_xr1__s1758",
+          "method": "RPent-Hybrid",
+          "vlm": "GPT-6 Astra (low)",
+          "vla": "XR-1",
+          "executors": "XR-1 + CaP",
+          "task_success": false,
+          "first_success_step": null,
+          "executed_actions": 1489,
+          "action_budget": 6000,
+          "vla_actions": 1184,
+          "code_actions": 305,
+          "trajectory_npz": "data/rollouts/case_studies/trajectories/coupled_diagnostic__BreakfastCoffeeComposition_rpent_hybrid_xr1__s1758.traj.npz",
+          "stages": [],
+          "calls": [
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 0,
+              "end_step": 160,
+              "steps": 160,
+              "summary": "Grasp the croissant on the left round plate and lift it clear of the plate. Keep holding the croissant."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 160,
+              "end_step": 320,
+              "steps": 160,
+              "summary": "Grasp the croissant on the left round plate and lift it clear of the plate. Keep holding the croissant."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 320,
+              "end_step": 344,
+              "steps": 24,
+              "summary": "{\"xyz\": [2.775, -1.381, 0.993]}"
+            },
+            {
+              "tool": "release",
+              "executor": "code",
+              "start_step": 344,
+              "end_step": 364,
+              "steps": 20,
+              "summary": "{\"steps\": 20}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 364,
+              "end_step": 524,
+              "steps": 160,
+              "summary": "Pick up the small red-lidded jar of jam from the upper shelf on the left. Lift it clear and keep holding it."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 524,
+              "end_step": 588,
+              "steps": 64,
+              "summary": "Lift the orange mug you are grasping clear of the upper shelf and hold it upright."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 588,
+              "end_step": 604,
+              "steps": 16,
+              "summary": "{\"xyz\": [2.57, -1.57, 1.29]}"
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 604,
+              "end_step": 764,
+              "steps": 160,
+              "summary": "Find the orange mug that slipped down in front of the counter. Pick it up and hold it upright."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 764,
+              "end_step": 924,
+              "steps": 160,
+              "summary": "Find the orange mug that slipped down in front of the counter. Pick it up and hold it upright."
+            },
+            {
+              "tool": "navigate_to",
+              "executor": "code",
+              "start_step": 924,
+              "end_step": 940,
+              "steps": 16,
+              "summary": "{\"xy\": [2.384, -1.786], \"tol\": 0.5}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 940,
+              "end_step": 1149,
+              "steps": 209,
+              "summary": "{\"xyz\": [2.07, -1.566, 0.96]}"
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1149,
+              "end_step": 1309,
+              "steps": 160,
+              "summary": "Pick up the orange mug lying on the floor directly in front of the lower kitchen drawers. Grasp its handle and lift it upright."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1309,
+              "end_step": 1469,
+              "steps": 160,
+              "summary": "Pick up the orange mug lying on the floor directly in front of the lower kitchen drawers. Grasp its handle and lift it upright."
+            },
+            {
+              "tool": "release",
+              "executor": "code",
+              "start_step": 1469,
+              "end_step": 1489,
+              "steps": 20,
+              "summary": "{\"steps\": 20}"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "rc_seen_presoakpan",
+      "category": "robocasa365",
+      "featured": false,
+      "badge": "Appendix Fig. S3(b) · RoboCasa365 Composite Seen",
+      "benchmark": "RoboCasa365",
+      "suite_label": "Composite Seen (XR-1 + CaP)",
+      "task": "PreSoakPan",
+      "seed": 1161,
+      "fps": 20,
+      "instruction": "Pick up the pan and sponge, place them into the sink basin, and turn on the water faucet to pre-soak the pan.",
+      "takeaway": "When VLA grasp attempts on the pan handle stall against the counter rim (steps 602–802), STAGE invokes Code-as-Policy to complete pan placement into the basin (step 863) while keeping the stage coherent, then resumes VLA to place the sponge and turn on the faucet (step 1518).",
+      "stage": {
+        "video": "videos/rc_seen_presoakpan_stage.mp4",
+        "video_mb": 2.81,
+        "bookmarks": [
+          {
+            "step": 0,
+            "label": "Step 0: Initial scene"
+          },
+          {
+            "step": 602,
+            "label": "Step 602: VLA approaches pan"
+          },
+          {
+            "step": 802,
+            "label": "Step 802: Grasp blocked, reassess"
+          },
+          {
+            "step": 863,
+            "label": "Step 863: Code places pan in sink"
+          },
+          {
+            "step": 1518,
+            "label": "Step 1518: VLA finishes soaking (Success)"
+          }
+        ],
+        "trace": {
+          "episode_id": "robocasa365_stage_xr1__composite_seen__PreSoakPan__s1161",
+          "method": "STAGE (XR-1)",
+          "vlm": "GPT-6 Astra (low)",
+          "vla": "XR-1",
+          "executors": "XR-1 + CaP",
+          "task_success": true,
+          "first_success_step": 1512,
+          "executed_actions": 1518,
+          "action_budget": 3840,
+          "vla_actions": 1040,
+          "code_actions": 478,
+          "trajectory_npz": "data/rollouts/robocasa365/stage_xr1/trajectories/composite_seen__PreSoakPan__s1161.traj.npz",
+          "stages": [
+            {
+              "subgoal_id": "sg001",
+              "decision": "start",
+              "parent_subgoal_id": null,
+              "start_step": 0,
+              "end_step": 360,
+              "instruction": "Pick up the pan from the right counter and place it into the sink.",
+              "completion_condition": "The pan is released and resting inside the sink."
+            },
+            {
+              "subgoal_id": "sg002",
+              "decision": "recover",
+              "parent_subgoal_id": "sg001",
+              "start_step": 360,
+              "end_step": 440,
+              "instruction": "Reposition the pan fully inside the left sink basin so it rests flat on the bottom, with its handle clear of the divider.",
+              "completion_condition": "Pan rests flat inside the left basin, released and clear of the divider."
+            },
+            {
+              "subgoal_id": "sg003",
+              "decision": "recover",
+              "parent_subgoal_id": "sg002",
+              "start_step": 440,
+              "end_step": 863,
+              "instruction": "Pick up the black pan by its handle and place it deeper into the sink.",
+              "completion_condition": "Black pan is released fully inside sink and pan_in_sink is true."
+            },
+            {
+              "subgoal_id": "sg004",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 863,
+              "end_step": 943,
+              "instruction": "Pick up the sponge from the left counter and place it into the sink.",
+              "completion_condition": "Sponge is released inside sink and sponge_in_sink is true."
+            },
+            {
+              "subgoal_id": "sg005",
+              "decision": "recover",
+              "parent_subgoal_id": "sg004",
+              "start_step": 943,
+              "end_step": 997,
+              "instruction": "Move away from the pan and approach the sponge on the left countertop.",
+              "completion_condition": "Sponge is clearly visible and gripper is positioned above it, clear of pan."
+            },
+            {
+              "subgoal_id": "sg006",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 997,
+              "end_step": 1092,
+              "instruction": "Pick up the sponge and place it into the sink.",
+              "completion_condition": "Sponge released inside sink and sponge_in_sink is true."
+            },
+            {
+              "subgoal_id": "sg007",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 1092,
+              "end_step": 1518,
+              "instruction": "Turn on the sink faucet.",
+              "completion_condition": "Water is flowing and water_on is true."
+            }
+          ],
+          "calls": [
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 0,
+              "end_step": 40,
+              "steps": 40,
+              "summary": "Pick up the pan from the right counter and place it into the sink."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 40,
+              "end_step": 80,
+              "steps": 40,
+              "summary": "Pick up the pan from the right counter and place it into the sink."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 80,
+              "end_step": 120,
+              "steps": 40,
+              "summary": "Pick up the pan from the right counter and place it into the sink."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 120,
+              "end_step": 160,
+              "steps": 40,
+              "summary": "Pick up the pan from the right counter and place it into the sink."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 160,
+              "end_step": 200,
+              "steps": 40,
+              "summary": "Pick up the pan from the right counter and place it into the sink."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 200,
+              "end_step": 240,
+              "steps": 40,
+              "summary": "Pick up the pan from the right counter and place it into the sink."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 240,
+              "end_step": 280,
+              "steps": 40,
+              "summary": "Pick up the pan from the right counter and place it into the sink."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 280,
+              "end_step": 320,
+              "steps": 40,
+              "summary": "Pick up the pan from the right counter and place it into the sink."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 320,
+              "end_step": 360,
+              "steps": 40,
+              "summary": "Pick up the pan from the right counter and place it into the sink."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 360,
+              "end_step": 400,
+              "steps": 40,
+              "summary": "Reposition the pan fully inside the left sink basin so it rests flat on the bottom, with its handle clear of the divider."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 400,
+              "end_step": 440,
+              "steps": 40,
+              "summary": "Reposition the pan fully inside the left sink basin so it rests flat on the bottom, with its handle clear of the divider."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 440,
+              "end_step": 480,
+              "steps": 40,
+              "summary": "Pick up the black pan by its handle and place it deeper into the sink."
+            },
+            {
+              "tool": "navigate_to",
+              "executor": "code",
+              "start_step": 480,
+              "end_step": 520,
+              "steps": 40,
+              "summary": "{\"xy\": [0.253, -2.351], \"tol\": 0.65}"
+            },
+            {
+              "tool": "navigate_to",
+              "executor": "code",
+              "start_step": 520,
+              "end_step": 560,
+              "steps": 40,
+              "summary": "{\"xy\": [0.253, -2.351], \"tol\": 0.65}"
+            },
+            {
+              "tool": "navigate_to",
+              "executor": "code",
+              "start_step": 560,
+              "end_step": 593,
+              "steps": 33,
+              "summary": "{\"xy\": [1.009, -1.977], \"tol\": 0.3}"
+            },
+            {
+              "tool": "navigate_to",
+              "executor": "code",
+              "start_step": 593,
+              "end_step": 602,
+              "steps": 9,
+              "summary": "{\"xy\": [0.364, -2.197], \"tol\": 0.55}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 602,
+              "end_step": 642,
+              "steps": 40,
+              "summary": "Pick up the black pan by its handle and place it deeper into the sink."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 642,
+              "end_step": 682,
+              "steps": 40,
+              "summary": "Pick up the black pan by its handle and place it deeper into the sink."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 682,
+              "end_step": 722,
+              "steps": 40,
+              "summary": "Pick up the black pan by its handle and place it deeper into the sink."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 722,
+              "end_step": 762,
+              "steps": 40,
+              "summary": "Pick up the black pan by its handle and place it deeper into the sink."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 762,
+              "end_step": 802,
+              "steps": 40,
+              "summary": "Pick up the black pan by its handle and place it deeper into the sink."
+            },
+            {
+              "tool": "scripted_grasp",
+              "executor": "code",
+              "start_step": 802,
+              "end_step": 842,
+              "steps": 40,
+              "summary": "{\"xyz\": [0.405, -2.197, 0.958], \"approach_z\": 0.08, \"grasp_z_offset\": -0.012, \"step_clip\": 0.012}"
+            },
+            {
+              "tool": "set_gripper",
+              "executor": "code",
+              "start_step": 842,
+              "end_step": 852,
+              "steps": 10,
+              "summary": "{\"gripper\": 1, \"steps\": 10}"
+            },
+            {
+              "tool": "move_delta",
+              "executor": "code",
+              "start_step": 852,
+              "end_step": 863,
+              "steps": 11,
+              "summary": "{\"dxyz\": [0, 0, 0.12]}"
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 863,
+              "end_step": 903,
+              "steps": 40,
+              "summary": "Pick up the sponge from the left counter and place it into the sink."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 903,
+              "end_step": 943,
+              "steps": 40,
+              "summary": "Pick up the sponge from the left counter and place it into the sink."
+            },
+            {
+              "tool": "move_delta",
+              "executor": "code",
+              "start_step": 943,
+              "end_step": 962,
+              "steps": 19,
+              "summary": "{\"dxyz\": [0.1, 0, 0.22], \"gripper\": -1}"
+            },
+            {
+              "tool": "move_base",
+              "executor": "code",
+              "start_step": 962,
+              "end_step": 982,
+              "steps": 20,
+              "summary": "{\"turn\": 0.3, \"steps\": 20}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 982,
+              "end_step": 997,
+              "steps": 15,
+              "summary": "{\"xyz\": [0.454, -2.774, 1.067], \"gripper\": -1}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 997,
+              "end_step": 1015,
+              "steps": 18,
+              "summary": "{\"xyz\": [0.454, -2.774, 0.937], \"gripper\": -1, \"step_clip\": 0.01}"
+            },
+            {
+              "tool": "set_gripper",
+              "executor": "code",
+              "start_step": 1015,
+              "end_step": 1025,
+              "steps": 10,
+              "summary": "{\"gripper\": 1, \"steps\": 10}"
+            },
+            {
+              "tool": "move_delta",
+              "executor": "code",
+              "start_step": 1025,
+              "end_step": 1039,
+              "steps": 14,
+              "summary": "{\"dxyz\": [0, 0, 0.16]}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 1039,
+              "end_step": 1057,
+              "steps": 18,
+              "summary": "{\"xyz\": [0.32, -2.56, 1.109]}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 1057,
+              "end_step": 1077,
+              "steps": 20,
+              "summary": "{\"xyz\": [0.268, -2.525, 0.86]}"
+            },
+            {
+              "tool": "release",
+              "executor": "code",
+              "start_step": 1077,
+              "end_step": 1092,
+              "steps": 15,
+              "summary": "{\"steps\": 15}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1092,
+              "end_step": 1132,
+              "steps": 40,
+              "summary": "Turn on the sink faucet."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1132,
+              "end_step": 1172,
+              "steps": 40,
+              "summary": "Turn on the sink faucet."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1172,
+              "end_step": 1212,
+              "steps": 40,
+              "summary": "Turn on the sink faucet."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1212,
+              "end_step": 1252,
+              "steps": 40,
+              "summary": "Turn on the sink faucet."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1252,
+              "end_step": 1292,
+              "steps": 40,
+              "summary": "Turn on the sink faucet."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1292,
+              "end_step": 1332,
+              "steps": 40,
+              "summary": "Turn on the sink faucet."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1332,
+              "end_step": 1372,
+              "steps": 40,
+              "summary": "Turn on the sink faucet."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 1372,
+              "end_step": 1385,
+              "steps": 13,
+              "summary": "{\"xyz\": [0.113, -2.104, 1.074], \"gripper\": -1, \"step_clip\": 0.006, \"tol\": 0.006}"
+            },
+            {
+              "tool": "set_gripper",
+              "executor": "code",
+              "start_step": 1385,
+              "end_step": 1395,
+              "steps": 10,
+              "summary": "{\"gripper\": 1, \"steps\": 10}"
+            },
+            {
+              "tool": "move_delta",
+              "executor": "code",
+              "start_step": 1395,
+              "end_step": 1406,
+              "steps": 11,
+              "summary": "{\"dxyz\": [0.07, 0, -0.02], \"step_clip\": 0.005}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 1406,
+              "end_step": 1417,
+              "steps": 11,
+              "summary": "{\"xyz\": [0.114, -2.105, 1.035], \"gripper\": -1, \"step_clip\": 0.005, \"tol\": 0.005}"
+            },
+            {
+              "tool": "set_gripper",
+              "executor": "code",
+              "start_step": 1417,
+              "end_step": 1427,
+              "steps": 10,
+              "summary": "{\"gripper\": 1, \"steps\": 10}"
+            },
+            {
+              "tool": "move_delta",
+              "executor": "code",
+              "start_step": 1427,
+              "end_step": 1438,
+              "steps": 11,
+              "summary": "{\"dxyz\": [0.06, 0, -0.015], \"step_clip\": 0.004}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 1438,
+              "end_step": 1478,
+              "steps": 40,
+              "summary": "{\"xyz\": [0.084, -2.106, 1.064], \"step_clip\": 0.004, \"tol\": 0.005}"
+            },
+            {
+              "tool": "move_delta",
+              "executor": "code",
+              "start_step": 1478,
+              "end_step": 1518,
+              "steps": 40,
+              "summary": "{\"dxyz\": [0, 0.07, -0.015], \"step_clip\": 0.004}"
+            }
+          ]
+        }
+      },
+      "rpent": {
+        "video": "videos/rc_seen_presoakpan_rpent.mp4",
+        "video_mb": 0.46,
+        "bookmarks": [
+          {
+            "step": 0,
+            "label": "Step 0: Initial scene"
+          },
+          {
+            "step": 858,
+            "label": "Step 858: Episode ends (Failure)"
+          }
+        ],
+        "trace": {
+          "episode_id": "robocasa365_rpent_hybrid_xr1__composite_seen__PreSoakPan__s1161",
+          "method": "RPent-Hybrid",
+          "vlm": "GPT-6 Astra (low)",
+          "vla": "XR-1",
+          "executors": "XR-1 + CaP",
+          "task_success": false,
+          "first_success_step": null,
+          "executed_actions": 857,
+          "action_budget": 3840,
+          "vla_actions": 752,
+          "code_actions": 105,
+          "trajectory_npz": "data/rollouts/robocasa365/rpent_hybrid_xr1/trajectories/composite_seen__PreSoakPan__s1161.traj.npz",
+          "stages": [],
+          "calls": [
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 0,
+              "end_step": 200,
+              "steps": 200,
+              "summary": "Pick up the black pan visible on the right side of the counter and place it into the right basin of the sink. Then pick up the small sponge "
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 200,
+              "end_step": 360,
+              "steps": 160,
+              "summary": "The pan is already in the sink. Now pick up the small yellow sponge on the left countertop, place it into the left sink basin, release it, t"
+            },
+            {
+              "tool": "scripted_grasp",
+              "executor": "code",
+              "start_step": 360,
+              "end_step": 465,
+              "steps": 105,
+              "summary": "{\"xyz\": [0.459, -2.761, 0.948], \"approach_z\": 0.12, \"grasp_z_offset\": -0.015, \"step_clip\": 0.015}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 465,
+              "end_step": 585,
+              "steps": 120,
+              "summary": "I am holding the small sponge. Move it into the open left basin of the sink, release it there, then turn the faucet handle on so water runs."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 585,
+              "end_step": 665,
+              "steps": 80,
+              "summary": "Both the pan and sponge are already in the sink. Reach to the sink faucet control and turn the water on, then stop."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 665,
+              "end_step": 761,
+              "steps": 96,
+              "summary": "The pan and sponge are already correctly placed in the sink. Only turn on the water: reach to the sink faucet handle at the back center, rot"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 761,
+              "end_step": 857,
+              "steps": 96,
+              "summary": "Grasp the small faucet handle at the back center of the sink, rotate it to the open position until water starts flowing, then release the ha"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "rc_unseen_arrangetea",
+      "category": "robocasa365",
+      "featured": false,
+      "badge": "Appendix Fig. S3(c) · RoboCasa365 Composite Unseen",
+      "benchmark": "RoboCasa365",
+      "suite_label": "Composite Unseen (XR-1 + CaP)",
+      "task": "ArrangeTea",
+      "seed": 1761,
+      "fps": 20,
+      "instruction": "Retrieve the tea items from the cabinet, arrange the mug and teapot on the tray, and close the cabinet doors.",
+      "takeaway": "VLA grasps and transports the mug above the tray (steps 1184–1224), hands off within the stage to Code-as-Policy for collision-free downward alignment and release onto the crowded tray (step 1300), and resumes VLA to close the cabinet doors (step 1796).",
+      "stage": {
+        "video": "videos/rc_unseen_arrangetea_stage.mp4",
+        "video_mb": 2.9,
+        "bookmarks": [
+          {
+            "step": 0,
+            "label": "Step 0: Initial scene"
+          },
+          {
+            "step": 1184,
+            "label": "Step 1184: VLA holds mug"
+          },
+          {
+            "step": 1224,
+            "label": "Step 1224: Within-stage VLA→Code handoff"
+          },
+          {
+            "step": 1300,
+            "label": "Step 1300: Code releases mug on tray"
+          },
+          {
+            "step": 1796,
+            "label": "Step 1796: VLA closes cabinet (Success)"
+          }
+        ],
+        "trace": {
+          "episode_id": "robocasa365_stage_xr1__composite_unseen__ArrangeTea__s1761",
+          "method": "STAGE (XR-1)",
+          "vlm": "GPT-6 Astra (low)",
+          "vla": "XR-1",
+          "executors": "XR-1 + CaP",
+          "task_success": true,
+          "first_success_step": 1789,
+          "executed_actions": 1796,
+          "action_budget": 3600,
+          "vla_actions": 1656,
+          "code_actions": 140,
+          "trajectory_npz": "data/rollouts/robocasa365/stage_xr1/trajectories/composite_unseen__ArrangeTea__s1761.traj.npz",
+          "stages": [
+            {
+              "subgoal_id": "sg001",
+              "decision": "start",
+              "parent_subgoal_id": null,
+              "start_step": 0,
+              "end_step": 320,
+              "instruction": "Pick up the kettle from the counter and place it on the wooden tray to the left of the stove.",
+              "completion_condition": "Kettle rests on the wooden tray and gripper has released it."
+            },
+            {
+              "subgoal_id": "sg002",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 320,
+              "end_step": 800,
+              "instruction": "Pick up the mug from the open cabinet and place it on the wooden tray beside the kettle.",
+              "completion_condition": "Mug rests on the tray beside kettle and is released."
+            },
+            {
+              "subgoal_id": "sg003",
+              "decision": "recover",
+              "parent_subgoal_id": "sg002",
+              "start_step": 800,
+              "end_step": 880,
+              "instruction": "Pick up the mug from the counter at the front edge of the tray and place it fully inside the wooden tray beside the kettle.",
+              "completion_condition": "Mug is released with its base supported inside tray and mug tray contact is true."
+            },
+            {
+              "subgoal_id": "sg004",
+              "decision": "recover",
+              "parent_subgoal_id": "sg003",
+              "start_step": 880,
+              "end_step": 1300,
+              "instruction": "Lift the mug by its handle and place it in the empty back half of the wooden tray, behind the blue kettle.",
+              "completion_condition": "Mug released in back half of tray with obj1_container_contact true."
+            },
+            {
+              "subgoal_id": "sg005",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 1300,
+              "end_step": 1620,
+              "instruction": "Close the open cabinet doors above the tray.",
+              "completion_condition": "Cabinet doors are fully closed and gripper is clear of the tray objects."
+            },
+            {
+              "subgoal_id": "sg006",
+              "decision": "recover",
+              "parent_subgoal_id": "sg005",
+              "start_step": 1620,
+              "end_step": 1796,
+              "instruction": "Close the remaining open right cabinet door above the stove.",
+              "completion_condition": "Both cabinet doors shut and cab_closed is true."
+            }
+          ],
+          "calls": [
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 0,
+              "end_step": 40,
+              "steps": 40,
+              "summary": "Pick up the kettle from the counter and place it on the wooden tray to the left of the stove."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 40,
+              "end_step": 80,
+              "steps": 40,
+              "summary": "Pick up the kettle from the counter and place it on the wooden tray to the left of the stove."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 80,
+              "end_step": 120,
+              "steps": 40,
+              "summary": "Pick up the kettle from the counter and place it on the wooden tray to the left of the stove."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 120,
+              "end_step": 160,
+              "steps": 40,
+              "summary": "Pick up the kettle from the counter and place it on the wooden tray to the left of the stove."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 160,
+              "end_step": 200,
+              "steps": 40,
+              "summary": "Pick up the kettle from the counter and place it on the wooden tray to the left of the stove."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 200,
+              "end_step": 240,
+              "steps": 40,
+              "summary": "Pick up the kettle from the counter and place it on the wooden tray to the left of the stove."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 240,
+              "end_step": 280,
+              "steps": 40,
+              "summary": "Pick up the kettle from the counter and place it on the wooden tray to the left of the stove."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 280,
+              "end_step": 320,
+              "steps": 40,
+              "summary": "Pick up the kettle from the counter and place it on the wooden tray to the left of the stove."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 320,
+              "end_step": 360,
+              "steps": 40,
+              "summary": "Pick up the mug from the open cabinet and place it on the wooden tray beside the kettle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 360,
+              "end_step": 400,
+              "steps": 40,
+              "summary": "Pick up the mug from the open cabinet and place it on the wooden tray beside the kettle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 400,
+              "end_step": 440,
+              "steps": 40,
+              "summary": "Pick up the mug from the open cabinet and place it on the wooden tray beside the kettle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 440,
+              "end_step": 480,
+              "steps": 40,
+              "summary": "Pick up the mug from the open cabinet and place it on the wooden tray beside the kettle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 480,
+              "end_step": 520,
+              "steps": 40,
+              "summary": "Pick up the mug from the open cabinet and place it on the wooden tray beside the kettle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 520,
+              "end_step": 560,
+              "steps": 40,
+              "summary": "Pick up the mug from the open cabinet and place it on the wooden tray beside the kettle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 560,
+              "end_step": 600,
+              "steps": 40,
+              "summary": "Pick up the mug from the open cabinet and place it on the wooden tray beside the kettle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 600,
+              "end_step": 640,
+              "steps": 40,
+              "summary": "Pick up the mug from the open cabinet and place it on the wooden tray beside the kettle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 640,
+              "end_step": 680,
+              "steps": 40,
+              "summary": "Pick up the mug from the open cabinet and place it on the wooden tray beside the kettle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 680,
+              "end_step": 720,
+              "steps": 40,
+              "summary": "Pick up the mug from the open cabinet and place it on the wooden tray beside the kettle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 720,
+              "end_step": 760,
+              "steps": 40,
+              "summary": "Pick up the mug from the open cabinet and place it on the wooden tray beside the kettle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 760,
+              "end_step": 800,
+              "steps": 40,
+              "summary": "Pick up the mug from the open cabinet and place it on the wooden tray beside the kettle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 800,
+              "end_step": 840,
+              "steps": 40,
+              "summary": "Pick up the mug from the counter at the front edge of the tray and place it fully inside the wooden tray beside the kettle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 840,
+              "end_step": 880,
+              "steps": 40,
+              "summary": "Pick up the mug from the counter at the front edge of the tray and place it fully inside the wooden tray beside the kettle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 880,
+              "end_step": 920,
+              "steps": 40,
+              "summary": "Lift the mug by its handle and place it in the empty back half of the wooden tray, behind the blue kettle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 920,
+              "end_step": 960,
+              "steps": 40,
+              "summary": "Lift the mug by its handle and place it in the empty back half of the wooden tray, behind the blue kettle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 960,
+              "end_step": 1000,
+              "steps": 40,
+              "summary": "Lift the mug by its handle and place it in the empty back half of the wooden tray, behind the blue kettle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1000,
+              "end_step": 1040,
+              "steps": 40,
+              "summary": "Lift the mug by its handle and place it in the empty back half of the wooden tray, behind the blue kettle."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1040,
+              "end_step": 1080,
+              "steps": 40,
+              "summary": "Lift the mug by its handle and place it in the empty back half of the wooden tray, behind the blue kettle."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1080,
+              "end_step": 1120,
+              "steps": 40,
+              "summary": "Lift the mug by its handle and place it in the empty back half of the wooden tray, behind the blue kettle."
+            },
+            {
+              "tool": "move_delta",
+              "executor": "code",
+              "start_step": 1120,
+              "end_step": 1144,
+              "steps": 24,
+              "summary": "{\"dxyz\": [-0.08, 0.2, 0.04]}"
+            },
+            {
+              "tool": "move_delta",
+              "executor": "code",
+              "start_step": 1144,
+              "end_step": 1184,
+              "steps": 40,
+              "summary": "{\"dxyz\": [-0.03, 0.25, 0]}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1184,
+              "end_step": 1224,
+              "steps": 40,
+              "summary": "Lift the mug by its handle and place it in the empty back half of the wooden tray, behind the blue kettle."
+            },
+            {
+              "tool": "move_delta",
+              "executor": "code",
+              "start_step": 1224,
+              "end_step": 1235,
+              "steps": 11,
+              "summary": "{\"dxyz\": [0, 0.12, -0.04], \"step_clip\": 0.01}"
+            },
+            {
+              "tool": "move_delta",
+              "executor": "code",
+              "start_step": 1235,
+              "end_step": 1246,
+              "steps": 11,
+              "summary": "{\"dxyz\": [-0.025, 0.13, 0], \"step_clip\": 0.01}"
+            },
+            {
+              "tool": "move_delta",
+              "executor": "code",
+              "start_step": 1246,
+              "end_step": 1271,
+              "steps": 25,
+              "summary": "{\"dxyz\": [0, 0.11, -0.08], \"step_clip\": 0.01}"
+            },
+            {
+              "tool": "move_delta",
+              "executor": "code",
+              "start_step": 1271,
+              "end_step": 1281,
+              "steps": 10,
+              "summary": "{\"dxyz\": [0, 0, -0.1], \"step_clip\": 0.01}"
+            },
+            {
+              "tool": "move_delta",
+              "executor": "code",
+              "start_step": 1281,
+              "end_step": 1285,
+              "steps": 4,
+              "summary": "{\"dxyz\": [0, 0, -0.045], \"step_clip\": 0.008}"
+            },
+            {
+              "tool": "release",
+              "executor": "code",
+              "start_step": 1285,
+              "end_step": 1300,
+              "steps": 15,
+              "summary": "{\"steps\": 15}"
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1300,
+              "end_step": 1340,
+              "steps": 40,
+              "summary": "Close the open cabinet doors above the tray."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1340,
+              "end_step": 1380,
+              "steps": 40,
+              "summary": "Close the open cabinet doors above the tray."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1380,
+              "end_step": 1420,
+              "steps": 40,
+              "summary": "Close the open cabinet doors above the tray."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1420,
+              "end_step": 1460,
+              "steps": 40,
+              "summary": "Close the open cabinet doors above the tray."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1460,
+              "end_step": 1500,
+              "steps": 40,
+              "summary": "Close the open cabinet doors above the tray."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1500,
+              "end_step": 1540,
+              "steps": 40,
+              "summary": "Close the open cabinet doors above the tray."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1540,
+              "end_step": 1580,
+              "steps": 40,
+              "summary": "Close the open cabinet doors above the tray."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1580,
+              "end_step": 1620,
+              "steps": 40,
+              "summary": "Close the open cabinet doors above the tray."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1620,
+              "end_step": 1660,
+              "steps": 40,
+              "summary": "Close the remaining open right cabinet door above the stove."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1660,
+              "end_step": 1700,
+              "steps": 40,
+              "summary": "Close the remaining open right cabinet door above the stove."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1700,
+              "end_step": 1740,
+              "steps": 40,
+              "summary": "Close the remaining open right cabinet door above the stove."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1740,
+              "end_step": 1780,
+              "steps": 40,
+              "summary": "Close the remaining open right cabinet door above the stove."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1780,
+              "end_step": 1796,
+              "steps": 16,
+              "summary": "Close the remaining open right cabinet door above the stove."
+            }
+          ]
+        }
+      },
+      "rpent": {
+        "video": "videos/rc_unseen_arrangetea_rpent.mp4",
+        "video_mb": 0.95,
+        "bookmarks": [
+          {
+            "step": 0,
+            "label": "Step 0: Initial scene"
+          },
+          {
+            "step": 1506,
+            "label": "Step 1506: Episode ends (Failure)"
+          }
+        ],
+        "trace": {
+          "episode_id": "robocasa365_rpent_hybrid_xr1__composite_unseen__ArrangeTea__s1761",
+          "method": "RPent-Hybrid",
+          "vlm": "GPT-6 Astra (low)",
+          "vla": "XR-1",
+          "executors": "XR-1 + CaP",
+          "task_success": true,
+          "first_success_step": 1500,
+          "executed_actions": 1507,
+          "action_budget": 3600,
+          "vla_actions": 1080,
+          "code_actions": 427,
+          "trajectory_npz": "data/rollouts/robocasa365/rpent_hybrid_xr1/trajectories/composite_unseen__ArrangeTea__s1761.traj.npz",
+          "stages": [],
+          "calls": [
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 0,
+              "end_step": 160,
+              "steps": 160,
+              "summary": "Grasp the blue kettle on the counter by its handle and lift it off the counter."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 160,
+              "end_step": 320,
+              "steps": 160,
+              "summary": "Grasp the blue kettle on the counter by its handle and lift it off the counter."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 320,
+              "end_step": 345,
+              "steps": 25,
+              "summary": "{\"xyz\": [1.969, -0.581, 1.476]}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 345,
+              "end_step": 361,
+              "steps": 16,
+              "summary": "{\"xyz\": [1.775, -0.446, 1.35]}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 361,
+              "end_step": 381,
+              "steps": 20,
+              "summary": "{\"xyz\": [1.775, -0.446, 1.115]}"
+            },
+            {
+              "tool": "release",
+              "executor": "code",
+              "start_step": 381,
+              "end_step": 396,
+              "steps": 15,
+              "summary": "{\"steps\": 15}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 396,
+              "end_step": 556,
+              "steps": 160,
+              "summary": "Pick up the mug from the open cabinet shelf. Grasp the mug and lift it clear of the shelf."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 556,
+              "end_step": 716,
+              "steps": 160,
+              "summary": "Pick up the mug from the open cabinet shelf. Grasp the mug and lift it clear of the shelf."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 716,
+              "end_step": 756,
+              "steps": 40,
+              "summary": "Pick up the mug from the open cabinet shelf. Grasp the mug and lift it clear of the shelf."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 756,
+              "end_step": 773,
+              "steps": 17,
+              "summary": "{\"xyz\": [1.915, -0.589, 1.483]}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 773,
+              "end_step": 794,
+              "steps": 21,
+              "summary": "{\"xyz\": [1.805, -0.52, 1.245]}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 794,
+              "end_step": 814,
+              "steps": 20,
+              "summary": "{\"xyz\": [1.704, -0.264, 1.205]}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 814,
+              "end_step": 1014,
+              "steps": 200,
+              "summary": "{\"xyz\": [1.704, -0.264, 0.99]}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 1014,
+              "end_step": 1019,
+              "steps": 5,
+              "summary": "{\"xyz\": [1.727, -0.298, 1.044]}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 1019,
+              "end_step": 1079,
+              "steps": 60,
+              "summary": "{\"xyz\": [1.727, -0.298, 0.99]}"
+            },
+            {
+              "tool": "release",
+              "executor": "code",
+              "start_step": 1079,
+              "end_step": 1094,
+              "steps": 15,
+              "summary": "{\"steps\": 15}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 1094,
+              "end_step": 1107,
+              "steps": 13,
+              "summary": "{\"xyz\": [1.862, -0.441, 1.155]}"
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1107,
+              "end_step": 1267,
+              "steps": 160,
+              "summary": "Close the open cabinet doors above the counter."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1267,
+              "end_step": 1347,
+              "steps": 80,
+              "summary": "Close the open cabinet doors above the counter."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1347,
+              "end_step": 1507,
+              "steps": 160,
+              "summary": "Close the open cabinet doors above the counter."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "rc_unseen_garnishpancake",
+      "category": "robocasa365",
+      "featured": false,
+      "badge": "Handoff Trace C08 · RoboCasa365 Composite Unseen",
+      "benchmark": "RoboCasa365",
+      "suite_label": "Composite Unseen (XR-1 + CaP)",
+      "task": "GarnishPancake",
+      "seed": 1961,
+      "fps": 20,
+      "instruction": "Place the garnish onto the plated pancake cleanly and withdraw the gripper.",
+      "takeaway": "Demonstrates fine-grained precision completion inside a single placement stage: VLA acquires a stable strawberry grasp, and Code-as-Policy performs final metric pose alignment above the pancake, opens the gripper, and withdraws cleanly to achieve native success.",
+      "stage": {
+        "video": "videos/rc_unseen_garnishpancake_stage.mp4",
+        "video_mb": 3.67,
+        "bookmarks": [
+          {
+            "step": 0,
+            "label": "Step 0: Initial scene"
+          },
+          {
+            "step": 600,
+            "label": "Step 600: VLA grasps garnish"
+          },
+          {
+            "step": 1150,
+            "label": "Step 1150: Code aligns & releases"
+          },
+          {
+            "step": 1229,
+            "label": "Step 1229: Task Success"
+          }
+        ],
+        "trace": {
+          "episode_id": "robocasa365_stage_xr1__composite_unseen__GarnishPancake__s1961",
+          "method": "STAGE (XR-1)",
+          "vlm": "GPT-6 Astra (low)",
+          "vla": "XR-1",
+          "executors": "XR-1 + CaP",
+          "task_success": true,
+          "first_success_step": 1214,
+          "executed_actions": 1230,
+          "action_budget": 4320,
+          "vla_actions": 1120,
+          "code_actions": 110,
+          "trajectory_npz": "data/rollouts/robocasa365/stage_xr1/trajectories/composite_unseen__GarnishPancake__s1961.traj.npz",
+          "stages": [
+            {
+              "subgoal_id": "sg001",
+              "decision": "start",
+              "parent_subgoal_id": null,
+              "start_step": 0,
+              "end_step": 200,
+              "instruction": "Open the refrigerator door to expose the strawberry inside.",
+              "completion_condition": "The refrigerator door is open and the interior containing the strawberry is visible."
+            },
+            {
+              "subgoal_id": "sg002",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 200,
+              "end_step": 520,
+              "instruction": "Pick up the strawberry from the upper shelf of the refrigerator and hold it clear of the shelf.",
+              "completion_condition": "The strawberry is held in the gripper and lifted clear of the refrigerator shelf."
+            },
+            {
+              "subgoal_id": "sg003",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 520,
+              "end_step": 1000,
+              "instruction": "Place the held strawberry on top of the pancake on the dining counter.",
+              "completion_condition": "The strawberry rests on top of the pancake and the gripper is released and withdrawn."
+            },
+            {
+              "subgoal_id": "sg004",
+              "decision": "recover",
+              "parent_subgoal_id": "sg003",
+              "start_step": 1000,
+              "end_step": 1080,
+              "instruction": "Move back to the pancake on the dining counter and stop in front of it while holding the strawberry.",
+              "completion_condition": "The base is stopped in front of the visible pancake within arm reach, with the strawberry still held."
+            },
+            {
+              "subgoal_id": "sg005",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 1080,
+              "end_step": 1230,
+              "instruction": "Place the held strawberry on top of the pancake.",
+              "completion_condition": "The strawberry rests on the pancake with the fingers released and withdrawn."
+            }
+          ],
+          "calls": [
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 0,
+              "end_step": 40,
+              "steps": 40,
+              "summary": "Open the refrigerator door to expose the strawberry inside."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 40,
+              "end_step": 80,
+              "steps": 40,
+              "summary": "Open the refrigerator door to expose the strawberry inside."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 80,
+              "end_step": 120,
+              "steps": 40,
+              "summary": "Open the refrigerator door to expose the strawberry inside."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 120,
+              "end_step": 160,
+              "steps": 40,
+              "summary": "Open the refrigerator door to expose the strawberry inside."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 160,
+              "end_step": 200,
+              "steps": 40,
+              "summary": "Open the refrigerator door to expose the strawberry inside."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 200,
+              "end_step": 240,
+              "steps": 40,
+              "summary": "Pick up the strawberry from the upper shelf of the refrigerator and hold it clear of the shelf."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 240,
+              "end_step": 280,
+              "steps": 40,
+              "summary": "Pick up the strawberry from the upper shelf of the refrigerator and hold it clear of the shelf."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 280,
+              "end_step": 320,
+              "steps": 40,
+              "summary": "Pick up the strawberry from the upper shelf of the refrigerator and hold it clear of the shelf."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 320,
+              "end_step": 360,
+              "steps": 40,
+              "summary": "Pick up the strawberry from the upper shelf of the refrigerator and hold it clear of the shelf."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 360,
+              "end_step": 400,
+              "steps": 40,
+              "summary": "Pick up the strawberry from the upper shelf of the refrigerator and hold it clear of the shelf."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 400,
+              "end_step": 440,
+              "steps": 40,
+              "summary": "Pick up the strawberry from the upper shelf of the refrigerator and hold it clear of the shelf."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 440,
+              "end_step": 480,
+              "steps": 40,
+              "summary": "Pick up the strawberry from the upper shelf of the refrigerator and hold it clear of the shelf."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 480,
+              "end_step": 520,
+              "steps": 40,
+              "summary": "Pick up the strawberry from the upper shelf of the refrigerator and hold it clear of the shelf."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 520,
+              "end_step": 560,
+              "steps": 40,
+              "summary": "Place the held strawberry on top of the pancake on the dining counter."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 560,
+              "end_step": 600,
+              "steps": 40,
+              "summary": "Place the held strawberry on top of the pancake on the dining counter."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 600,
+              "end_step": 640,
+              "steps": 40,
+              "summary": "Place the held strawberry on top of the pancake on the dining counter."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 640,
+              "end_step": 680,
+              "steps": 40,
+              "summary": "Place the held strawberry on top of the pancake on the dining counter."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 680,
+              "end_step": 720,
+              "steps": 40,
+              "summary": "Place the held strawberry on top of the pancake on the dining counter."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 720,
+              "end_step": 760,
+              "steps": 40,
+              "summary": "Place the held strawberry on top of the pancake on the dining counter."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 760,
+              "end_step": 800,
+              "steps": 40,
+              "summary": "Place the held strawberry on top of the pancake on the dining counter."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 800,
+              "end_step": 840,
+              "steps": 40,
+              "summary": "Place the held strawberry on top of the pancake on the dining counter."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 840,
+              "end_step": 880,
+              "steps": 40,
+              "summary": "Place the held strawberry on top of the pancake on the dining counter."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 880,
+              "end_step": 920,
+              "steps": 40,
+              "summary": "Place the held strawberry on top of the pancake on the dining counter."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 920,
+              "end_step": 960,
+              "steps": 40,
+              "summary": "Place the held strawberry on top of the pancake on the dining counter."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 960,
+              "end_step": 1000,
+              "steps": 40,
+              "summary": "Place the held strawberry on top of the pancake on the dining counter."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1000,
+              "end_step": 1040,
+              "steps": 40,
+              "summary": "Move back to the pancake on the dining counter and stop in front of it while holding the strawberry."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1040,
+              "end_step": 1080,
+              "steps": 40,
+              "summary": "Move back to the pancake on the dining counter and stop in front of it while holding the strawberry."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 1080,
+              "end_step": 1120,
+              "steps": 40,
+              "summary": "Place the held strawberry on top of the pancake."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 1120,
+              "end_step": 1146,
+              "steps": 26,
+              "summary": "{\"xyz\": [2.984, -3.499, 1.316]}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 1146,
+              "end_step": 1163,
+              "steps": 17,
+              "summary": "{\"xyz\": [3.18, -3.33, 1.317]}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 1163,
+              "end_step": 1186,
+              "steps": 23,
+              "summary": "{\"xyz\": [3.18, -3.33, 1.105]}"
+            },
+            {
+              "tool": "release",
+              "executor": "code",
+              "start_step": 1186,
+              "end_step": 1196,
+              "steps": 10,
+              "summary": "{\"steps\": 10}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 1196,
+              "end_step": 1213,
+              "steps": 17,
+              "summary": "{\"xyz\": [3.197, -3.33, 1.3]}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 1213,
+              "end_step": 1230,
+              "steps": 17,
+              "summary": "{\"xyz\": [3.001, -3.485, 1.4]}"
+            }
+          ]
+        }
+      },
+      "rpent": null
+    },
+    {
+      "id": "rc_unseen_categorizecondiments",
+      "category": "robocasa365",
+      "featured": false,
+      "badge": "Handoff Trace C03 · Explicit Recovery Stage",
+      "benchmark": "RoboCasa365",
+      "suite_label": "Composite Unseen (XR-1 + CaP)",
+      "task": "CategorizeCondiments",
+      "seed": 1857,
+      "fps": 20,
+      "instruction": "Group the condiments and shakers onto the designated organizer area.",
+      "takeaway": "After a failed regrasp leaves two shakers separated, the planner declares an explicit Recover stage (sg004, steps 594–623) using Code-as-Policy to reposition them, then cleanly advances to VLA bottle placement with a fresh observation buffer.",
+      "stage": {
+        "video": "videos/rc_unseen_categorizecondiments_stage.mp4",
+        "video_mb": 1.66,
+        "bookmarks": [
+          {
+            "step": 0,
+            "label": "Step 0: Initial scene"
+          },
+          {
+            "step": 594,
+            "label": "Step 594: Recover sg004 (Code)"
+          },
+          {
+            "step": 623,
+            "label": "Step 623: Recovery complete → VLA"
+          },
+          {
+            "step": 1167,
+            "label": "Step 1167: Task Success"
+          }
+        ],
+        "trace": {
+          "episode_id": "robocasa365_stage_xr1__composite_unseen__CategorizeCondiments__s1857",
+          "method": "STAGE (XR-1)",
+          "vlm": "GPT-6 Astra (low)",
+          "vla": "XR-1",
+          "executors": "XR-1 + CaP",
+          "task_success": true,
+          "first_success_step": 1162,
+          "executed_actions": 1167,
+          "action_budget": 2640,
+          "vla_actions": 1064,
+          "code_actions": 103,
+          "trajectory_npz": "data/rollouts/robocasa365/stage_xr1/trajectories/composite_unseen__CategorizeCondiments__s1857.traj.npz",
+          "stages": [
+            {
+              "subgoal_id": "sg001",
+              "decision": "start",
+              "parent_subgoal_id": null,
+              "start_step": 0,
+              "end_step": 120,
+              "instruction": "Put the tan condiment bottle from the counter next to the tan condiment bottle in the cabinet.",
+              "completion_condition": "Counter bottle is released on the cabinet shelf next to the matching tan bottle."
+            },
+            {
+              "subgoal_id": "sg002",
+              "decision": "recover",
+              "parent_subgoal_id": "sg001",
+              "start_step": 120,
+              "end_step": 440,
+              "instruction": "Put the teal shaker held in the gripper next to the teal shaker in the cabinet.",
+              "completion_condition": "Held teal shaker is released on the cabinet shelf beside the matching teal shaker."
+            },
+            {
+              "subgoal_id": "sg003",
+              "decision": "recover",
+              "parent_subgoal_id": "sg002",
+              "start_step": 440,
+              "end_step": 594,
+              "instruction": "Place the sideways teal shaker at the front of the cabinet upright next to the standing teal shaker.",
+              "completion_condition": "Both teal shakers stand supported on the cabinet shelf close together with gripper released."
+            },
+            {
+              "subgoal_id": "sg004",
+              "decision": "recover",
+              "parent_subgoal_id": "sg003",
+              "start_step": 594,
+              "end_step": 623,
+              "instruction": "Move the sideways teal shaker closer to the standing teal shaker while keeping it supported inside the cabinet.",
+              "completion_condition": "Released shaker remains inside cabinet and shakers_close is true."
+            },
+            {
+              "subgoal_id": "sg005",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 623,
+              "end_step": 1167,
+              "instruction": "Put the condiment bottle from the counter next to the condiment bottle in the cabinet.",
+              "completion_condition": "Counter bottle is released inside cabinet close to matching bottle, and gripper withdraws."
+            }
+          ],
+          "calls": [
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 0,
+              "end_step": 40,
+              "steps": 40,
+              "summary": "Put the tan condiment bottle from the counter next to the tan condiment bottle in the cabinet."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 40,
+              "end_step": 80,
+              "steps": 40,
+              "summary": "Put the tan condiment bottle from the counter next to the tan condiment bottle in the cabinet."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 80,
+              "end_step": 120,
+              "steps": 40,
+              "summary": "Put the tan condiment bottle from the counter next to the tan condiment bottle in the cabinet."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 120,
+              "end_step": 160,
+              "steps": 40,
+              "summary": "Put the teal shaker held in the gripper next to the teal shaker in the cabinet."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 160,
+              "end_step": 200,
+              "steps": 40,
+              "summary": "Put the teal shaker held in the gripper next to the teal shaker in the cabinet."
+            },
+            {
+              "tool": "rldx_arm",
+              "executor": "vla",
+              "start_step": 200,
+              "end_step": 240,
+              "steps": 40,
+              "summary": "Put the teal shaker held in the gripper next to the teal shaker in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 240,
+              "end_step": 280,
+              "steps": 40,
+              "summary": "Put the teal shaker held in the gripper next to the teal shaker in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 280,
+              "end_step": 320,
+              "steps": 40,
+              "summary": "Put the teal shaker held in the gripper next to the teal shaker in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 320,
+              "end_step": 360,
+              "steps": 40,
+              "summary": "Put the teal shaker held in the gripper next to the teal shaker in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 360,
+              "end_step": 400,
+              "steps": 40,
+              "summary": "Put the teal shaker held in the gripper next to the teal shaker in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 400,
+              "end_step": 440,
+              "steps": 40,
+              "summary": "Put the teal shaker held in the gripper next to the teal shaker in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 440,
+              "end_step": 480,
+              "steps": 40,
+              "summary": "Place the sideways teal shaker at the front of the cabinet upright next to the standing teal shaker."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 480,
+              "end_step": 520,
+              "steps": 40,
+              "summary": "Place the sideways teal shaker at the front of the cabinet upright next to the standing teal shaker."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 520,
+              "end_step": 548,
+              "steps": 28,
+              "summary": "{\"xyz\": [0.57, -0.963, 1.537]}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 548,
+              "end_step": 567,
+              "steps": 19,
+              "summary": "{\"xyz\": [0.349, -0.963, 1.537]}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 567,
+              "end_step": 576,
+              "steps": 9,
+              "summary": "{\"xyz\": [0.349, -0.963, 1.467], \"step_clip\": 0.01}"
+            },
+            {
+              "tool": "set_gripper",
+              "executor": "code",
+              "start_step": 576,
+              "end_step": 586,
+              "steps": 10,
+              "summary": "{\"gripper\": 1, \"steps\": 10}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 586,
+              "end_step": 594,
+              "steps": 8,
+              "summary": "{\"xyz\": [0.349, -0.963, 1.537], \"step_clip\": 0.01}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 594,
+              "end_step": 605,
+              "steps": 11,
+              "summary": "{\"xyz\": [0.4, -0.983, 1.467], \"step_clip\": 0.01}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 605,
+              "end_step": 623,
+              "steps": 18,
+              "summary": "{\"xyz\": [0.3, -0.933, 1.467], \"step_clip\": 0.005}"
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 623,
+              "end_step": 663,
+              "steps": 40,
+              "summary": "Put the condiment bottle from the counter next to the condiment bottle in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 663,
+              "end_step": 703,
+              "steps": 40,
+              "summary": "Put the condiment bottle from the counter next to the condiment bottle in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 703,
+              "end_step": 743,
+              "steps": 40,
+              "summary": "Put the condiment bottle from the counter next to the condiment bottle in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 743,
+              "end_step": 783,
+              "steps": 40,
+              "summary": "Put the condiment bottle from the counter next to the condiment bottle in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 783,
+              "end_step": 823,
+              "steps": 40,
+              "summary": "Put the condiment bottle from the counter next to the condiment bottle in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 823,
+              "end_step": 863,
+              "steps": 40,
+              "summary": "Put the condiment bottle from the counter next to the condiment bottle in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 863,
+              "end_step": 903,
+              "steps": 40,
+              "summary": "Put the condiment bottle from the counter next to the condiment bottle in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 903,
+              "end_step": 943,
+              "steps": 40,
+              "summary": "Put the condiment bottle from the counter next to the condiment bottle in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 943,
+              "end_step": 983,
+              "steps": 40,
+              "summary": "Put the condiment bottle from the counter next to the condiment bottle in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 983,
+              "end_step": 1023,
+              "steps": 40,
+              "summary": "Put the condiment bottle from the counter next to the condiment bottle in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1023,
+              "end_step": 1063,
+              "steps": 40,
+              "summary": "Put the condiment bottle from the counter next to the condiment bottle in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1063,
+              "end_step": 1103,
+              "steps": 40,
+              "summary": "Put the condiment bottle from the counter next to the condiment bottle in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1103,
+              "end_step": 1143,
+              "steps": 40,
+              "summary": "Put the condiment bottle from the counter next to the condiment bottle in the cabinet."
+            },
+            {
+              "tool": "rldx_skill",
+              "executor": "vla",
+              "start_step": 1143,
+              "end_step": 1167,
+              "steps": 24,
+              "summary": "Put the condiment bottle from the counter next to the condiment bottle in the cabinet."
+            }
+          ]
+        }
+      },
+      "rpent": null
+    },
+    {
+      "id": "libero_longtask_0_s3",
+      "category": "libero_pro",
+      "featured": false,
+      "badge": "Appendix Fig. S4(a) · LIBERO-PRO Long Task",
+      "benchmark": "LIBERO-PRO",
+      "suite_label": "Long Task (π_RLinf + CaP)",
+      "task": "Long Task 0",
+      "seed": 3,
+      "fps": 20,
+      "instruction": "put both the cream cheese and the tomato sauce in the basket",
+      "takeaway": "After placing the cream cheese (goal_0), VLA approaches the tomato-sauce can with a tilted wrist (steps 280–320). Within the same stage (sg002, Continue), Code uses 24 steps (320–344) to realign the open gripper vertically; STAGE invalidates stale RTC action tail while keeping the fixed instruction, and VLA grasps and places the can in the basket (step 494).",
+      "stage": {
+        "video": "videos/libero_longtask0_s3_stage.mp4",
+        "video_mb": 0.27,
+        "bookmarks": [
+          {
+            "step": 0,
+            "label": "Step 0: Initial tabletop"
+          },
+          {
+            "step": 280,
+            "label": "Step 280: VLA approaches tomato sauce"
+          },
+          {
+            "step": 320,
+            "label": "Step 320: Tilted gripper → Code handoff"
+          },
+          {
+            "step": 344,
+            "label": "Step 344: Code realigns open gripper"
+          },
+          {
+            "step": 424,
+            "label": "Step 424: Same-stage VLA grasps can"
+          },
+          {
+            "step": 494,
+            "label": "Step 494: Placed in basket (Success)"
+          }
+        ],
+        "trace": {
+          "episode_id": "libero_pro_stage_pi_rlinf__long_task__0__s3",
+          "method": "STAGE",
+          "vlm": "GPT-6 Astra (low)",
+          "vla": "pi_RLinf",
+          "executors": "pi_RLinf + CaP",
+          "task_success": true,
+          "first_success_step": 493,
+          "executed_actions": 494,
+          "action_budget": 2000,
+          "vla_actions": 470,
+          "code_actions": 24,
+          "trajectory_npz": "data/rollouts/libero_pro/stage_pi_rlinf/trajectories/long_task__0__s3.traj.npz",
+          "stages": [
+            {
+              "subgoal_id": "sg001",
+              "decision": "start",
+              "parent_subgoal_id": null,
+              "start_step": 0,
+              "end_step": 200,
+              "instruction": "put the cream cheese in the basket",
+              "completion_condition": "Cream cheese is released inside the basket and goal_0 is true."
+            },
+            {
+              "subgoal_id": "sg002",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 200,
+              "end_step": 494,
+              "instruction": "put the tomato sauce in the basket",
+              "completion_condition": "Tomato sauce is inside the basket and goal_1 is true."
+            }
+          ],
+          "calls": [
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 0,
+              "end_step": 40,
+              "steps": 40,
+              "summary": "put the cream cheese in the basket"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 40,
+              "end_step": 80,
+              "steps": 40,
+              "summary": "put the cream cheese in the basket"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 80,
+              "end_step": 120,
+              "steps": 40,
+              "summary": "put the cream cheese in the basket"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 120,
+              "end_step": 160,
+              "steps": 40,
+              "summary": "put the cream cheese in the basket"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 160,
+              "end_step": 200,
+              "steps": 40,
+              "summary": "put the cream cheese in the basket"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 200,
+              "end_step": 240,
+              "steps": 40,
+              "summary": "put the tomato sauce in the basket"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 240,
+              "end_step": 280,
+              "steps": 40,
+              "summary": "put the tomato sauce in the basket"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 280,
+              "end_step": 320,
+              "steps": 40,
+              "summary": "put the tomato sauce in the basket"
+            },
+            {
+              "tool": "move_pose",
+              "executor": "code",
+              "start_step": 320,
+              "end_step": 344,
+              "steps": 24,
+              "summary": "{\"xyz\": [-0.124, 0.026, 0.61], \"target_pitch\": 0, \"target_yaw\": 0, \"gripper\": -1}"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 344,
+              "end_step": 384,
+              "steps": 40,
+              "summary": "put the tomato sauce in the basket"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 384,
+              "end_step": 424,
+              "steps": 40,
+              "summary": "put the tomato sauce in the basket"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 424,
+              "end_step": 464,
+              "steps": 40,
+              "summary": "put the tomato sauce in the basket"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 464,
+              "end_step": 494,
+              "steps": 30,
+              "summary": "put the tomato sauce in the basket"
+            }
+          ]
+        }
+      },
+      "rpent": {
+        "video": "videos/libero_longtask0_s3_rpent.mp4",
+        "video_mb": 0.29,
+        "bookmarks": [
+          {
+            "step": 0,
+            "label": "Step 0: Initial tabletop"
+          },
+          {
+            "step": 675,
+            "label": "Step 675: Final state"
+          }
+        ],
+        "trace": {
+          "episode_id": "libero_pro_rpent_hybrid_pi_rlinf__long_task__0__s3",
+          "method": "RPent-Hybrid",
+          "vlm": "GPT-6 Astra (low)",
+          "vla": "pi_RLinf",
+          "executors": "pi_RLinf + CaP",
+          "task_success": true,
+          "first_success_step": 675,
+          "executed_actions": 675,
+          "action_budget": 9985,
+          "vla_actions": 135,
+          "code_actions": 540,
+          "trajectory_npz": "data/rollouts/libero_pro/rpent_hybrid_pi_rlinf/trajectories/long_task__0__s3.traj.npz",
+          "stages": [],
+          "calls": [
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 0,
+              "end_step": 41,
+              "steps": 41,
+              "summary": "{\"xyz\": [-0.05, 0.267, 0.75], \"gripper\": -1}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 41,
+              "end_step": 78,
+              "steps": 37,
+              "summary": "{\"xyz\": [-0.11, 0.025, 0.7], \"gripper\": -1}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 78,
+              "end_step": 110,
+              "steps": 32,
+              "summary": "{\"xyz\": [0.075, -0.18, 0.65], \"gripper\": -1}"
+            },
+            {
+              "tool": "pi0_pick",
+              "executor": "vla",
+              "start_step": 110,
+              "end_step": 160,
+              "steps": 50,
+              "summary": "Pick up the cream cheese, the flat white and blue rectangular box between the milk and orange juice cartons."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 160,
+              "end_step": 188,
+              "steps": 28,
+              "summary": "{\"xyz\": [0.083, -0.177, 0.73], \"gripper\": 1}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 188,
+              "end_step": 222,
+              "steps": 34,
+              "summary": "{\"xyz\": [0.04, 0.045, 0.73], \"gripper\": 1}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 222,
+              "end_step": 254,
+              "steps": 32,
+              "summary": "{\"xyz\": [-0.015, 0.25, 0.73], \"gripper\": 1}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 254,
+              "end_step": 334,
+              "steps": 80,
+              "summary": "{\"xyz\": [-0.015, 0.25, 0.48], \"gripper\": 1, \"step_clip\": 0.015}"
+            },
+            {
+              "tool": "release",
+              "executor": "code",
+              "start_step": 334,
+              "end_step": 354,
+              "steps": 20,
+              "summary": "{}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 354,
+              "end_step": 383,
+              "steps": 29,
+              "summary": "{\"xyz\": [-0.01, 0.255, 0.73], \"gripper\": -1}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 383,
+              "end_step": 418,
+              "steps": 35,
+              "summary": "{\"xyz\": [-0.118, 0.026, 0.7], \"gripper\": -1}"
+            },
+            {
+              "tool": "pi0_pick",
+              "executor": "vla",
+              "start_step": 418,
+              "end_step": 503,
+              "steps": 85,
+              "summary": "Pick up the tomato sauce can, the red and green can with tomatoes on its label in the center of the table."
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 503,
+              "end_step": 553,
+              "steps": 50,
+              "summary": "{\"xyz\": [-0.086, 0.035, 0.74], \"gripper\": 1, \"step_clip\": 0.015}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 553,
+              "end_step": 620,
+              "steps": 67,
+              "summary": "{\"xyz\": [-0.005, 0.3, 0.74], \"gripper\": 1, \"step_clip\": 0.015}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 620,
+              "end_step": 675,
+              "steps": 55,
+              "summary": "{\"xyz\": [-0.005, 0.3, 0.55], \"gripper\": 1, \"step_clip\": 0.012}"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "libero_longswap_1_s4",
+      "category": "libero_pro",
+      "featured": false,
+      "badge": "Appendix Fig. S4(b) · LIBERO-PRO Long Swap",
+      "benchmark": "LIBERO-PRO",
+      "suite_label": "Long Swap (π_RLinf + CaP)",
+      "task": "Long Swap 1",
+      "seed": 4,
+      "fps": 20,
+      "instruction": "put both the alphabet soup and the cream cheese box in the basket",
+      "takeaway": "Under swapped initial object positions, VLA approaches the target box with lateral offset (step 240). Code-as-Policy aligns the gripper and closes on the box within the active stage (steps 240–332), after which VLA lifts and places it into the basket (step 467) while preserving the earlier goal.",
+      "stage": {
+        "video": "videos/libero_longswap1_s4_stage.mp4",
+        "video_mb": 0.23,
+        "bookmarks": [
+          {
+            "step": 0,
+            "label": "Step 0: Swapped layout"
+          },
+          {
+            "step": 200,
+            "label": "Step 200: VLA approach"
+          },
+          {
+            "step": 240,
+            "label": "Step 240: Offset → Code handoff"
+          },
+          {
+            "step": 332,
+            "label": "Step 332: Code aligns & closes gripper"
+          },
+          {
+            "step": 372,
+            "label": "Step 372: VLA lifts box"
+          },
+          {
+            "step": 467,
+            "label": "Step 467: Basket placement (Success)"
+          }
+        ],
+        "trace": {
+          "episode_id": "libero_pro_stage_pi_rlinf__long_swap__1__s4",
+          "method": "STAGE",
+          "vlm": "GPT-6 Astra (low)",
+          "vla": "pi_RLinf",
+          "executors": "pi_RLinf + CaP",
+          "task_success": true,
+          "first_success_step": 467,
+          "executed_actions": 467,
+          "action_budget": 2000,
+          "vla_actions": 375,
+          "code_actions": 92,
+          "trajectory_npz": "data/rollouts/libero_pro/stage_pi_rlinf/trajectories/long_swap__1__s4.traj.npz",
+          "stages": [
+            {
+              "subgoal_id": "sg001",
+              "decision": "start",
+              "parent_subgoal_id": null,
+              "start_step": 0,
+              "end_step": 120,
+              "instruction": "put the butter in the basket",
+              "completion_condition": "Butter is in the basket, with goal_1 true."
+            },
+            {
+              "subgoal_id": "sg002",
+              "decision": "advance",
+              "parent_subgoal_id": null,
+              "start_step": 120,
+              "end_step": 467,
+              "instruction": "put the cream cheese box in the basket",
+              "completion_condition": "Cream cheese box is in the basket with goal_0 true, preserving goal_1."
+            }
+          ],
+          "calls": [
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 0,
+              "end_step": 40,
+              "steps": 40,
+              "summary": "put the butter in the basket"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 40,
+              "end_step": 80,
+              "steps": 40,
+              "summary": "put the butter in the basket"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 80,
+              "end_step": 120,
+              "steps": 40,
+              "summary": "put the butter in the basket"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 120,
+              "end_step": 160,
+              "steps": 40,
+              "summary": "put the cream cheese box in the basket"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 160,
+              "end_step": 200,
+              "steps": 40,
+              "summary": "put the cream cheese box in the basket"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 200,
+              "end_step": 240,
+              "steps": 40,
+              "summary": "put the cream cheese box in the basket"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 240,
+              "end_step": 262,
+              "steps": 22,
+              "summary": "{\"xyz\": [0.034, -0.134, 0.7], \"gripper\": -1}"
+            },
+            {
+              "tool": "move_pose",
+              "executor": "code",
+              "start_step": 262,
+              "end_step": 288,
+              "steps": 26,
+              "summary": "{\"xyz\": [-0.012, -0.267, 0.67], \"target_pitch\": 0, \"target_yaw\": 0, \"gripper\": -1}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 288,
+              "end_step": 322,
+              "steps": 34,
+              "summary": "{\"xyz\": [-0.012, -0.267, 0.458], \"gripper\": -1, \"tol\": 0.005}"
+            },
+            {
+              "tool": "set_gripper",
+              "executor": "code",
+              "start_step": 322,
+              "end_step": 332,
+              "steps": 10,
+              "summary": "{\"gripper\": 1, \"steps\": 10}"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 332,
+              "end_step": 372,
+              "steps": 40,
+              "summary": "put the cream cheese box in the basket"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 372,
+              "end_step": 412,
+              "steps": 40,
+              "summary": "put the cream cheese box in the basket"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 412,
+              "end_step": 452,
+              "steps": 40,
+              "summary": "put the cream cheese box in the basket"
+            },
+            {
+              "tool": "pi0_doubled",
+              "executor": "vla",
+              "start_step": 452,
+              "end_step": 467,
+              "steps": 15,
+              "summary": "put the cream cheese box in the basket"
+            }
+          ]
+        }
+      },
+      "rpent": {
+        "video": "videos/libero_longswap1_s4_rpent.mp4",
+        "video_mb": 0.54,
+        "bookmarks": [
+          {
+            "step": 0,
+            "label": "Step 0: Swapped layout"
+          },
+          {
+            "step": 1033,
+            "label": "Step 1033: Final state"
+          }
+        ],
+        "trace": {
+          "episode_id": "libero_pro_rpent_hybrid_pi_rlinf__long_swap__1__s4",
+          "method": "RPent-Hybrid",
+          "vlm": "GPT-6 Astra (low)",
+          "vla": "pi_RLinf",
+          "executors": "pi_RLinf + CaP",
+          "task_success": true,
+          "first_success_step": 1034,
+          "executed_actions": 1034,
+          "action_budget": 9985,
+          "vla_actions": 445,
+          "code_actions": 589,
+          "trajectory_npz": "data/rollouts/libero_pro/rpent_hybrid_pi_rlinf/trajectories/long_swap__1__s4.traj.npz",
+          "stages": [],
+          "calls": [
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 0,
+              "end_step": 40,
+              "steps": 40,
+              "summary": "{\"xyz\": [0.003, -0.267, 0.65], \"gripper\": -1}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 40,
+              "end_step": 81,
+              "steps": 41,
+              "summary": "{\"xyz\": [-0.04, 0.005, 0.72], \"gripper\": -1}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 81,
+              "end_step": 121,
+              "steps": 40,
+              "summary": "{\"xyz\": [-0.04, 0.262, 0.75], \"gripper\": -1}"
+            },
+            {
+              "tool": "pi0_pick",
+              "executor": "vla",
+              "start_step": 121,
+              "end_step": 221,
+              "steps": 100,
+              "summary": "pick up the butter box with the cow picture"
+            },
+            {
+              "tool": "pi0_pick",
+              "executor": "vla",
+              "start_step": 221,
+              "end_step": 321,
+              "steps": 100,
+              "summary": "pick up the small flat red and yellow butter box behind the tomato sauce can and to the left of the basket"
+            },
+            {
+              "tool": "move_pose",
+              "executor": "code",
+              "start_step": 321,
+              "end_step": 361,
+              "steps": 40,
+              "summary": "{\"xyz\": [-0.085, 0.045, 0.65], \"target_pitch\": 0, \"target_yaw\": 0, \"gripper\": -1}"
+            },
+            {
+              "tool": "pi0_pick",
+              "executor": "vla",
+              "start_step": 361,
+              "end_step": 406,
+              "steps": 45,
+              "summary": "pick up the butter"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 406,
+              "end_step": 449,
+              "steps": 43,
+              "summary": "{\"xyz\": [-0.081, 0.032, 0.68], \"gripper\": 1}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 449,
+              "end_step": 483,
+              "steps": 34,
+              "summary": "{\"xyz\": [-0.014, 0.255, 0.68], \"gripper\": 1}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 483,
+              "end_step": 563,
+              "steps": 80,
+              "summary": "{\"xyz\": [-0.014, 0.257, 0.48], \"gripper\": 1, \"step_clip\": 0.015}"
+            },
+            {
+              "tool": "move_pose",
+              "executor": "code",
+              "start_step": 563,
+              "end_step": 623,
+              "steps": 60,
+              "summary": "{\"xyz\": [-0.014, 0.257, 0.485], \"target_pitch\": 0, \"target_yaw\": 0, \"gripper\": 1, \"step_clip\": 0.012}"
+            },
+            {
+              "tool": "release",
+              "executor": "code",
+              "start_step": 623,
+              "end_step": 643,
+              "steps": 20,
+              "summary": "{}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 643,
+              "end_step": 673,
+              "steps": 30,
+              "summary": "{\"xyz\": [-0.01, 0.26, 0.72], \"gripper\": -1}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 673,
+              "end_step": 713,
+              "steps": 40,
+              "summary": "{\"xyz\": [-0.013, 0, 0.72], \"gripper\": -1}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 713,
+              "end_step": 757,
+              "steps": 44,
+              "summary": "{\"xyz\": [-0.013, -0.262, 0.65], \"gripper\": -1}"
+            },
+            {
+              "tool": "pi0_pick",
+              "executor": "vla",
+              "start_step": 757,
+              "end_step": 857,
+              "steps": 100,
+              "summary": "pick up the cream cheese box"
+            },
+            {
+              "tool": "pi0_pick",
+              "executor": "vla",
+              "start_step": 857,
+              "end_step": 957,
+              "steps": 100,
+              "summary": "pick up the cream cheese box"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 957,
+              "end_step": 983,
+              "steps": 26,
+              "summary": "{\"xyz\": [-0.012, 0.235, 0.7], \"gripper\": 1}"
+            },
+            {
+              "tool": "move_to",
+              "executor": "code",
+              "start_step": 983,
+              "end_step": 1034,
+              "steps": 51,
+              "summary": "{\"xyz\": [-0.012, 0.235, 0.49], \"gripper\": 1, \"step_clip\": 0.015}"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

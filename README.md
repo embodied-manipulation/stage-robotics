@@ -5,6 +5,8 @@
 ### Coordinating Vision-Language-Action Policy and Code-as-Policy for Long-Horizon Manipulation
 
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Project Showcase](https://img.shields.io/badge/Project%20Page-Case%20Videos%20%26%20Timelines-0EA5E9)](https://embodied-manipulation.github.io/stage-robotics/)
+[![Public Rollouts](https://img.shields.io/badge/Rollouts-680%20Main--Table%20%2B%204%20Coupled-8B5CF6)](data/rollouts/README.md)
 [![Benchmarks](https://img.shields.io/badge/Benchmarks-RoboCasa365%20%7C%20LIBERO--PRO-2E7D32)](#benchmark-results)
 [![License](https://img.shields.io/badge/License-Apache--2.0%20%2F%20MIT-blue)](stage/backends/cap/LICENSE)
 
@@ -109,11 +111,46 @@ At each observation review, the VLM planner evaluates the active stage against i
 
 ---
 
+## Public Rollouts & Case-Study Video Showcase
+
+### 1. Interactive Case-Study Showcase Page
+
+Rollout videos and interactive stage/executor timelines for the case studies in the main paper and supplementary material are hosted on our **[GitHub Showcase Page](https://embodied-manipulation.github.io/stage-robotics/)** (source in [`docs/`](docs/)):
+
+| Paper Reference | Benchmark / Setting | Task (`seed`) | Comparison | Videos |
+| :--- | :--- | :--- | :--- | :--- |
+| **Main Paper Fig. 5 (Sec. 5.5)** | Coupled Shared-Object Dependency | `BoardWaffleDependency` (`1758`) | **STAGE** (Joint Success, 4,590 steps) vs. **RPent-Hybrid** (3,627 steps, loses waffle) | [STAGE](docs/videos/board_waffle_stage.mp4) · [RPent](docs/videos/board_waffle_rpent.mp4) |
+| **Teaser / Appendix Fig. S3(a)** | Coupled Two-Goal Composition | `BreakfastCoffeeComposition` (`1758`) | **STAGE** (Joint Success, 2,052 steps) vs. **RPent-Hybrid** (1,489 steps, incomplete) | [STAGE](docs/videos/breakfast_coffee_stage.mp4) · [RPent](docs/videos/breakfast_coffee_rpent.mp4) |
+| **Appendix Fig. S3(b)** | RoboCasa365 Composite Seen | `PreSoakPan` (`1161`) | **STAGE** (Success, 1,518 steps) vs. **RPent-Hybrid** (858 steps) | [STAGE](docs/videos/rc_seen_presoakpan_stage.mp4) · [RPent](docs/videos/rc_seen_presoakpan_rpent.mp4) |
+| **Appendix Fig. S3(c)** | RoboCasa365 Composite Unseen | `ArrangeTea` (`1761`) | **STAGE** (Success, 1,796 steps) vs. **RPent-Hybrid** (1,506 steps) | [STAGE](docs/videos/rc_unseen_arrangetea_stage.mp4) · [RPent](docs/videos/rc_unseen_arrangetea_rpent.mp4) |
+| **Handoff Trace C08** | RoboCasa365 Composite Unseen | `GarnishPancake` (`1961`) | **STAGE** within-stage VLA grasp → Code precision release (1,229 steps) | [STAGE](docs/videos/rc_unseen_garnishpancake_stage.mp4) |
+| **Handoff Trace C03** | RoboCasa365 Composite Unseen | `CategorizeCondiments` (`1857`) | **STAGE** explicit `recover` stage (`sg004`) → VLA continuation (1,167 steps) | [STAGE](docs/videos/rc_unseen_categorizecondiments_stage.mp4) |
+| **Appendix Fig. S4(a)** | LIBERO-PRO Long Task | `Long Task 0` (`3`) | **STAGE** (Success, 494 steps) vs. **RPent-Hybrid** (675 steps) | [STAGE](docs/videos/libero_longtask0_s3_stage.mp4) · [RPent](docs/videos/libero_longtask0_s3_rpent.mp4) |
+| **Appendix Fig. S4(b)** | LIBERO-PRO Long Swap | `Long Swap 1` (`4`) | **STAGE** (Success, 467 steps) vs. **RPent-Hybrid** (1,033 steps) | [STAGE](docs/videos/libero_longswap1_s4_stage.mp4) · [RPent](docs/videos/libero_longswap1_s4_rpent.mp4) |
+
+### 2. Canonical Main-Table Rollout Trajectories (`data/rollouts/`)
+
+All **680 self-evaluated Main-Table episodes** (`RPent-Hybrid*` and `STAGE` across `LIBERO-PRO Long` and `RoboCasa365 Composite`) plus the **4 coupled-goal diagnostic rollouts** are released under [`data/rollouts/`](data/rollouts/README.md). Each rollout includes compressed physical action trajectories (`*.traj.npz`), initial/terminal simulator or dense robot states, observation-checkpoint kinematics, VLA/Code tool-call intervals, and STAGE `start` / `continue` / `advance` / `recover` transition logs:
+
+```bash
+# Reproduce all self-evaluated Table 1 success rates and verify 684 trajectory archives
+python data/rollouts/inspect_rollouts.py
+
+# Inspect STAGE transitions and VLA/Code calls for any episode
+python data/rollouts/inspect_rollouts.py \
+  --episode robocasa365_stage_xr1__composite_unseen__ArrangeTea__s1761
+```
+
+---
+
 ## Repository Structure
 
 ```text
 stage-robotics/
 ├── assets/                          # Paper figures for README documentation
+├── docs/                            # GitHub Pages showcase & paper case-study videos
+├── data/
+│   └── rollouts/                    # 680 Main-Table + 4 Coupled rollout trajectories & metadata
 ├── pyproject.toml                   # Package metadata and optional review/RTC extras
 └── stage/
     ├── README.md                    # Detailed technical architecture & module guide

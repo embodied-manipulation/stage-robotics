@@ -1,0 +1,225 @@
+{
+  "schema": "stage.public-rollouts-manifest/v1",
+  "title": "STAGE & RPent-Hybrid Canonical Rollout Dataset (CVPR 2027)",
+  "description": "Curated rollout trajectories and protocol metadata for all self-evaluated rows in Table 1 of 'Stage by Stage: Coordinating Vision-Language-Action Policy and Code-as-Policy for Long-Horizon Manipulation' (680 main-table episodes across RoboCasa365 Composite & LIBERO-PRO Long, plus 4 coupled-task diagnostic case-study rollouts).",
+  "included_artifacts": [
+    "Per-step physical action arrays (float32) for every episode",
+    "Initial/terminal MuJoCo environment states (RoboCasa365) and dense step-by-step robot states (LIBERO-PRO)",
+    "Observation-checkpoint end-effector, gripper, and mobile-base poses from public/states.json",
+    "Sanitized VLM/VLA/Code-as-Policy tool-call intervals and local arguments",
+    "STAGE protocol transition records (start / continue / advance / recover, stage instructions, completion criteria)",
+    "Benchmark-native task evaluation outcomes and native subtask attainment (Subtask SR)"
+  ],
+  "excluded_artifacts": [
+    "Raw multi-camera RGB/depth/point-cloud frame directories (30-50 GB across 680 episodes)",
+    "Full-benchmark MP4 videos (featured paper case-study videos are hosted on the GitHub Showcase Page under docs/videos/)",
+    "System prompts, raw model request payloads, provider credentials, and internal cluster paths"
+  ],
+  "main_table_episode_count": 680,
+  "coupled_case_study_episode_count": 4,
+  "total_trajectory_npz_mb": 30.18,
+  "total_metadata_mb": 40.51,
+  "cohorts": [
+    {
+      "cohort_id": "libero_pro_rpent_hybrid_pi_rlinf",
+      "table_reference": "Table 1(a) — Agentic methods: RPent-Hybrid*",
+      "benchmark": "LIBERO-PRO",
+      "method": "RPent-Hybrid",
+      "vlm": "GPT-6 Astra (low)",
+      "vla": "pi_RLinf",
+      "executors": "pi_RLinf + CaP",
+      "episode_count": 100,
+      "avg_task_sr_pct": 54.0,
+      "suites": {
+        "long_task": {
+          "episodes": 50,
+          "successes": 28,
+          "task_sr_pct": 56.0,
+          "subtask_sr_pct": 70.0,
+          "mean_executed_actions": 1107.4
+        },
+        "long_swap": {
+          "episodes": 50,
+          "successes": 26,
+          "task_sr_pct": 52.0,
+          "subtask_sr_pct": 66.0,
+          "mean_executed_actions": 1286.2
+        }
+      },
+      "metadata_jsonl": "data/rollouts/libero_pro/rpent_hybrid_pi_rlinf/metadata.jsonl",
+      "trajectories_dir": "data/rollouts/libero_pro/rpent_hybrid_pi_rlinf/trajectories"
+    },
+    {
+      "cohort_id": "libero_pro_stage_pi_rlinf",
+      "table_reference": "Table 1(a) — Ours: STAGE",
+      "benchmark": "LIBERO-PRO",
+      "method": "STAGE",
+      "vlm": "GPT-6 Astra (low)",
+      "vla": "pi_RLinf",
+      "executors": "pi_RLinf + CaP",
+      "episode_count": 100,
+      "avg_task_sr_pct": 80.0,
+      "suites": {
+        "long_task": {
+          "episodes": 50,
+          "successes": 45,
+          "task_sr_pct": 90.0,
+          "subtask_sr_pct": 90.0,
+          "mean_executed_actions": 640.4
+        },
+        "long_swap": {
+          "episodes": 50,
+          "successes": 35,
+          "task_sr_pct": 70.0,
+          "subtask_sr_pct": 81.0,
+          "mean_executed_actions": 1146.3
+        }
+      },
+      "metadata_jsonl": "data/rollouts/libero_pro/stage_pi_rlinf/metadata.jsonl",
+      "trajectories_dir": "data/rollouts/libero_pro/stage_pi_rlinf/trajectories"
+    },
+    {
+      "cohort_id": "robocasa365_rpent_hybrid_xr1",
+      "table_reference": "Table 1(b) — Agentic methods: RPent-Hybrid*",
+      "benchmark": "RoboCasa365",
+      "method": "RPent-Hybrid",
+      "vlm": "GPT-6 Astra (low)",
+      "vla": "XR-1",
+      "executors": "XR-1 + CaP",
+      "episode_count": 160,
+      "avg_task_sr_pct": 21.88,
+      "suites": {
+        "composite_seen": {
+          "episodes": 80,
+          "successes": 11,
+          "task_sr_pct": 13.75,
+          "subtask_sr_pct": 46.04,
+          "mean_executed_actions": 1280.2
+        },
+        "composite_unseen": {
+          "episodes": 80,
+          "successes": 24,
+          "task_sr_pct": 30.0,
+          "subtask_sr_pct": 57.83,
+          "mean_executed_actions": 1898.8
+        }
+      },
+      "metadata_jsonl": "data/rollouts/robocasa365/rpent_hybrid_xr1/metadata.jsonl",
+      "trajectories_dir": "data/rollouts/robocasa365/rpent_hybrid_xr1/trajectories"
+    },
+    {
+      "cohort_id": "robocasa365_stage_rldx1",
+      "table_reference": "Table 1(b) — Ours: STAGE (RLDX-1)",
+      "benchmark": "RoboCasa365",
+      "method": "STAGE (RLDX-1)",
+      "vlm": "GPT-6 Astra (low)",
+      "vla": "RLDX-1",
+      "executors": "RLDX-1 + CaP",
+      "episode_count": 160,
+      "avg_task_sr_pct": 35.63,
+      "suites": {
+        "composite_seen": {
+          "episodes": 80,
+          "successes": 29,
+          "task_sr_pct": 36.25,
+          "subtask_sr_pct": null,
+          "mean_executed_actions": 2215.0
+        },
+        "composite_unseen": {
+          "episodes": 80,
+          "successes": 28,
+          "task_sr_pct": 35.0,
+          "subtask_sr_pct": 57.37,
+          "mean_executed_actions": 1911.8
+        }
+      },
+      "metadata_jsonl": "data/rollouts/robocasa365/stage_rldx1/metadata.jsonl",
+      "trajectories_dir": "data/rollouts/robocasa365/stage_rldx1/trajectories"
+    },
+    {
+      "cohort_id": "robocasa365_stage_xr1",
+      "table_reference": "Table 1(b) — Ours: STAGE (XR-1)",
+      "benchmark": "RoboCasa365",
+      "method": "STAGE (XR-1)",
+      "vlm": "GPT-6 Astra (low)",
+      "vla": "XR-1",
+      "executors": "XR-1 + CaP",
+      "episode_count": 160,
+      "avg_task_sr_pct": 65.0,
+      "suites": {
+        "composite_seen": {
+          "episodes": 80,
+          "successes": 61,
+          "task_sr_pct": 76.25,
+          "subtask_sr_pct": 84.27,
+          "mean_executed_actions": 1675.1
+        },
+        "composite_unseen": {
+          "episodes": 80,
+          "successes": 43,
+          "task_sr_pct": 53.75,
+          "subtask_sr_pct": 78.5,
+          "mean_executed_actions": 1928.6
+        }
+      },
+      "metadata_jsonl": "data/rollouts/robocasa365/stage_xr1/metadata.jsonl",
+      "trajectories_dir": "data/rollouts/robocasa365/stage_xr1/trajectories"
+    }
+  ],
+  "coupled_case_studies": {
+    "description": "Diagnostic coupled-goal rollouts analyzed in Section 5.5 and Appendix Section 6 (excluded from main benchmark denominators).",
+    "episode_count": 4,
+    "metadata_jsonl": "data/rollouts/case_studies/metadata.jsonl",
+    "trajectories_dir": "data/rollouts/case_studies/trajectories",
+    "episodes": [
+      {
+        "episode_id": "coupled_case__stage_xr1__coupled_diagnostic__BoardWaffleDependency_stage_xr1__s1758",
+        "task": "BoardWaffleDependency",
+        "method": "STAGE (XR-1)",
+        "seed": 1758,
+        "executed_actions": 4590,
+        "vla_actions": 4400,
+        "code_actions": 190,
+        "task_success": true,
+        "trajectory_npz": "data/rollouts/case_studies/trajectories/coupled_diagnostic__BoardWaffleDependency_stage_xr1__s1758.traj.npz",
+        "paper_note": "High-coupling shared-object dependency (Sec. 5.5, Fig. 5): clear cutting board & reheat waffle in obstructing bowl."
+      },
+      {
+        "episode_id": "coupled_case__rpent_hybrid_xr1__coupled_diagnostic__BoardWaffleDependency_rpent_hybrid_xr1__s1758",
+        "task": "BoardWaffleDependency",
+        "method": "RPent-Hybrid",
+        "seed": 1758,
+        "executed_actions": 3627,
+        "vla_actions": 3040,
+        "code_actions": 587,
+        "task_success": false,
+        "trajectory_npz": "data/rollouts/case_studies/trajectories/coupled_diagnostic__BoardWaffleDependency_rpent_hybrid_xr1__s1758.traj.npz",
+        "paper_note": "High-coupling shared-object dependency baseline (Sec. 5.5): loses waffle during transport; vegetables placed, reheating unmet."
+      },
+      {
+        "episode_id": "coupled_case__stage_xr1__coupled_diagnostic__BreakfastCoffeeComposition_stage_xr1__s1758",
+        "task": "BreakfastCoffeeComposition",
+        "method": "STAGE (XR-1)",
+        "seed": 1758,
+        "executed_actions": 2052,
+        "vla_actions": 1592,
+        "code_actions": 460,
+        "task_success": true,
+        "trajectory_npz": "data/rollouts/case_studies/trajectories/coupled_diagnostic__BreakfastCoffeeComposition_stage_xr1__s1758.traj.npz",
+        "paper_note": "Low-coupling two-goal composition (Teaser / Appendix Fig. S3): place croissant & jam on board, then prepare coffee."
+      },
+      {
+        "episode_id": "coupled_case__rpent_hybrid_xr1__coupled_diagnostic__BreakfastCoffeeComposition_rpent_hybrid_xr1__s1758",
+        "task": "BreakfastCoffeeComposition",
+        "method": "RPent-Hybrid",
+        "seed": 1758,
+        "executed_actions": 1489,
+        "vla_actions": 1184,
+        "code_actions": 305,
+        "task_success": false,
+        "trajectory_npz": "data/rollouts/case_studies/trajectories/coupled_diagnostic__BreakfastCoffeeComposition_rpent_hybrid_xr1__s1758.traj.npz",
+        "paper_note": "Low-coupling two-goal composition baseline (Appendix): fails to satisfy joint board and coffee predicates."
+      }
+    ]
+  }
+}
